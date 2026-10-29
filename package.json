@@ -1,0 +1,12 @@
+{
+  "name": "cookie_consent-dev",
+  "private": true,
+  "description": "Development tooling for the cookie_consent Drupal module, not part of the module.",
+  "scripts": {
+    "test": "node --test \"tests/js/*.test.js\"",
+    "test:e2e": "node --test \"tests/e2e/*.test.js\""
+  },
+  "devDependencies": {
+    "playwright-core": "^1.48.0"
+  }
+}

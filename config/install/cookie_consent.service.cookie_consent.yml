@@ -1,0 +1,16 @@
+langcode: de
+status: true
+dependencies: {  }
+id: cookie_consent
+label: 'Cookie-Einwilligung'
+weight: 0
+category: necessary
+provider: 'Betreiber dieser Website'
+purpose: 'Speichert Ihre Cookie-Auswahl und die zufällige Einwilligungs-ID.'
+privacy_url: ''
+cookies:
+  -
+    name: 'cookie_consent'
+    duration: '6 Monate'
+    description: 'Ihre Cookie-Auswahl'
+embed_hosts: {  }

@@ -1,0 +1,83 @@
+/**
+ * @file
+ * Placeholder of blocked external content and cookie declaration.
+ *
+ * Themes adjust the look with the custom properties below. The banner itself
+ * is styled with the --cc-* custom properties of the banner library, see
+ * https://cookieconsent.orestbida.com/advanced/ui-customization.html
+ */
+
+.cookie-consent-embed {
+  --cookie-consent-embed-bg: #f2f2f2;
+  --cookie-consent-embed-color: #222;
+  --cookie-consent-embed-button-bg: #222;
+  --cookie-consent-embed-button-color: #fff;
+  --cookie-consent-embed-aspect-ratio: 16 / 9;
+  --cookie-consent-embed-min-height: 12rem;
+}
+
+.cookie-consent-embed__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--cookie-consent-embed-min-height);
+  padding: 1.5rem;
+  aspect-ratio: var(--cookie-consent-embed-aspect-ratio);
+  text-align: center;
+  color: var(--cookie-consent-embed-color);
+  background: var(--cookie-consent-embed-bg);
+}
+
+.cookie-consent-embed__text {
+  max-width: 36rem;
+  margin: 0;
+}
+
+.cookie-consent-embed__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cookie-consent-embed__button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--cookie-consent-embed-button-color);
+  border: 1px solid var(--cookie-consent-embed-button-bg);
+  background: var(--cookie-consent-embed-button-bg);
+  font: inherit;
+}
+
+.cookie-consent-embed__button--secondary {
+  color: var(--cookie-consent-embed-button-bg);
+  background: transparent;
+}
+
+.cookie-consent-embed__button:focus-visible,
+.cookie-consent-embed__privacy:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.cookie-consent-embed__privacy {
+  font-size: 0.875em;
+  color: inherit;
+}
+
+.cookie-consent-declaration__cookies {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cookie-consent-declaration__cookies th,
+.cookie-consent-declaration__cookies td {
+  padding: 0.25rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid currentColor;
+}

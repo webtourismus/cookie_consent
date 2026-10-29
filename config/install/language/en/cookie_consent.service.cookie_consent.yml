@@ -1,0 +1,7 @@
+label: 'Cookie consent'
+provider: 'Operator of this website'
+purpose: 'Stores your cookie choice and the random consent ID.'
+cookies:
+  -
+    duration: '6 months'
+    description: 'Your cookie choice'

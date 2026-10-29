@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Cookie declaration for the privacy policy, generated from the services.
+ *
+ * Available variables:
+ * - categories: The categories with at least one service, each with:
+ *   - id: Machine name.
+ *   - label: Name of the category.
+ *   - description: Description of the category.
+ *   - services: The services, each with label, provider, purpose,
+ *     privacy_url and cookies (name, duration, description).
+ * - labels: Labels of the table columns and the settings button.
+ */
+#}
+<div class="cookie-consent-declaration">
+  {% for category in categories %}
+    <section class="cookie-consent-declaration__category" data-cookie-consent-category="{{ category.id }}">
+      <h3>{{ category.label }}</h3>
+      {% if category.description %}
+        <p>{{ category.description }}</p>
+      {% endif %}
+      {% for service in category.services %}
+        <h4>{{ service.label }}</h4>
+        <dl class="cookie-consent-declaration__service">
+          <dt>{{ labels.provider }}</dt>
+          <dd>
+            {{ service.provider }}
+            {% if service.privacy_url %}
+              (<a href="{{ service.privacy_url }}" target="_blank" rel="noopener">{{ labels.privacy }}</a>)
+            {% endif %}
+          </dd>
+          {% if service.purpose %}
+            <dt>{{ labels.purpose }}</dt>
+            <dd>{{ service.purpose }}</dd>
+          {% endif %}
+          <dt>{{ labels.cookies }}</dt>
+          <dd>
+            {% if service.cookies %}
+              <table class="cookie-consent-declaration__cookies">
+                <thead>
+                  <tr>
+                    <th>{{ labels.name }}</th>
+                    <th>{{ labels.duration }}</th>
+                    <th>{{ labels.description }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cookie in service.cookies %}
+                    <tr>
+                      <td><code>{{ cookie.name }}</code></td>
+                      <td>{{ cookie.duration }}</td>
+                      <td>{{ cookie.description }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            {% else %}
+              {{ labels.no_cookies }}
+            {% endif %}
+          </dd>
+        </dl>
+      {% endfor %}
+    </section>
+  {% endfor %}
+  <p>
+    <button type="button" class="cookie-consent-declaration__button" data-cc="show-preferencesModal" aria-haspopup="dialog">{{ labels.settings }}</button>
+  </p>
+</div>

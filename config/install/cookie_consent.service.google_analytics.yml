@@ -1,0 +1,20 @@
+langcode: de
+status: true
+dependencies: {  }
+id: google_analytics
+label: 'Google Analytics'
+weight: 0
+category: analytics
+provider: 'Google Ireland Limited'
+purpose: 'Statistik über die Nutzung der Website, zum Beispiel besuchte Seiten, Verweildauer und Herkunft der Besucher.'
+privacy_url: 'https://policies.google.com/privacy'
+cookies:
+  -
+    name: '_ga'
+    duration: '2 Jahre'
+    description: 'Unterscheidet Besucher'
+  -
+    name: '_ga_*'
+    duration: '2 Jahre'
+    description: 'Speichert den Sitzungsstatus'
+embed_hosts: {  }

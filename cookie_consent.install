@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cookie_consent module.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_schema().
+ *
+ * @phpstan-return array<string, array<string, mixed>>
+ */
+function cookie_consent_schema(): array {
+  $schema['cookie_consent_log'] = [
+    'description' => 'Consents given by visitors, as proof. Contains no IP addresses.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'consent_id' => [
+        'description' => 'Random UUID created by the banner and stored in the consent cookie.',
+        'type' => 'varchar_ascii',
+        'length' => 36,
+        'not null' => TRUE,
+      ],
+      'revision' => [
+        'description' => 'Revision of the consent texts.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'accept_type' => [
+        'description' => 'all, necessary or custom.',
+        'type' => 'varchar_ascii',
+        'length' => 16,
+        'not null' => TRUE,
+      ],
+      'categories' => [
+        'description' => 'Comma-separated accepted categories.',
+        'type' => 'varchar_ascii',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'services' => [
+        'description' => 'JSON object of the accepted services per category.',
+        'type' => 'text',
+        'size' => 'normal',
+        'not null' => FALSE,
+      ],
+      'langcode' => [
+        'description' => 'Language of the page the consent was given on.',
+        'type' => 'varchar_ascii',
+        'length' => 12,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'created' => [
+        'description' => 'Unix timestamp of the consent.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'consent_id' => ['consent_id'],
+      'created' => ['created'],
+    ],
+  ];
+  return $schema;
+}

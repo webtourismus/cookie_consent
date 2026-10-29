@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="cookie_consent">
+  <description>Drupal coding standards for the cookie_consent module.</description>
+  <file>.</file>
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <exclude-pattern>node_modules/*</exclude-pattern>
+  <exclude-pattern>js/vendor/*</exclude-pattern>
+  <arg name="extensions" value="php,module,inc,install,yml,md"/>
+  <arg value="sp"/>
+  <rule ref="Drupal">
+    <!-- Not packaged by drupal.org, the version is maintained in the info file. -->
+    <exclude name="Drupal.InfoFiles.AutoAddedKeys"/>
+  </rule>
+  <rule ref="DrupalPractice"/>
+</ruleset>

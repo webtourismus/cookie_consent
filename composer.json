@@ -1,0 +1,19 @@
+{
+  "name": "webtourismus/cookie_consent",
+  "description": "Cookie banner with Google Consent Mode v2, proof of consent, two-click embeds and cookie declaration for Drupal websites.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "keywords": ["Drupal", "cookie banner", "consent", "GDPR", "Google Consent Mode"],
+  "homepage": "https://github.com/webtourismus/cookie_consent",
+  "support": {
+    "source": "https://github.com/webtourismus/cookie_consent"
+  },
+  "require": {
+    "php": ">=8.3",
+    "drupal/core": "^11.2"
+  },
+  "suggest": {
+    "drupal/google_tag": "Loads Google Tag Manager, which receives the consent signals.",
+    "drupal/geolocation": "Google Maps of the geolocation_map formatter are loaded after consent."
+  }
+}

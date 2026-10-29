@@ -1,0 +1,81 @@
+langcode: de
+enabled: false
+revision: 1
+expiry_days: 182
+layout: box
+position: 'bottom left'
+privacy_page: ''
+imprint_page: ''
+data_layer: dataLayer
+wait_for_update: 500
+ads_data_redaction: true
+url_passthrough: false
+log_retention_days: 1095
+categories:
+  necessary:
+    label: 'Notwendig'
+    description: 'Diese Cookies und Dienste sind für den Betrieb der Website erforderlich, zum Beispiel um Ihre Cookie-Auswahl zu speichern. Sie können nicht deaktiviert werden.'
+    required: true
+    weight: 0
+    consent_signals:
+      - security_storage
+  functional:
+    label: 'Funktional'
+    description: 'Ermöglichen zusätzliche Funktionen und persönliche Einstellungen, zum Beispiel Chat- oder Buchungs-Widgets.'
+    required: false
+    weight: 1
+    consent_signals:
+      - functionality_storage
+      - personalization_storage
+  analytics:
+    label: 'Statistik'
+    description: 'Helfen uns zu verstehen, wie Besucher die Website nutzen. Die Informationen werden zusammengefasst ausgewertet und helfen uns, die Website zu verbessern.'
+    required: false
+    weight: 2
+    consent_signals:
+      - analytics_storage
+  marketing:
+    label: 'Marketing'
+    description: 'Werden verwendet, um die Wirkung unserer Werbung zu messen und Ihnen auf anderen Websites relevante Angebote anzuzeigen.'
+    required: false
+    weight: 3
+    consent_signals:
+      - ad_storage
+      - ad_user_data
+      - ad_personalization
+  external_media:
+    label: 'Externe Medien'
+    description: 'Inhalte von Video- und Kartenplattformen wie YouTube oder Google Maps. Beim Laden werden Daten an den jeweiligen Anbieter übertragen.'
+    required: false
+    weight: 4
+    consent_signals: {  }
+texts:
+  consent_title: 'Wir respektieren Ihre Privatsphäre'
+  consent_description: 'Wir verwenden Cookies und ähnliche Technologien, um unsere Website zu verbessern, Zugriffe zu analysieren und Inhalte externer Anbieter wie Videos und Karten anzuzeigen. Mit „Alle akzeptieren“ stimmen Sie allen Zwecken zu. Mit „Alle ablehnen“ verwenden wir nur notwendige Cookies. Ihre Auswahl können Sie jederzeit über „Cookies“ am Ende der Seite ändern.'
+  revision_message: 'Wir haben unsere Datenschutzhinweise aktualisiert. Bitte bestätigen Sie Ihre Auswahl erneut.'
+  accept_all: 'Alle akzeptieren'
+  reject_all: 'Alle ablehnen'
+  show_preferences: 'Einstellungen'
+  preferences_title: 'Cookie-Einstellungen'
+  preferences_description: 'Hier wählen Sie, welche Cookies und Dienste wir verwenden dürfen. Notwendige Cookies sind immer aktiv. Ihre Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft widerrufen werden.'
+  save_preferences: 'Auswahl speichern'
+  close: 'Schließen'
+  service_counter: 'Dienst|Dienste'
+  privacy_link: 'Datenschutz'
+  imprint_link: 'Impressum'
+  more_title: 'Ihre gespeicherte Auswahl'
+  more_description: 'Ihre Einwilligung wird mit einer zufälligen ID protokolliert, damit wir sie nachweisen können. Personenbezogene Daten wie Ihre IP-Adresse werden dabei nicht gespeichert.'
+  consent_id_label: 'Einwilligungs-ID'
+  consent_date_label: 'Letzte Änderung'
+  table_name: 'Name'
+  table_service: 'Dienst'
+  table_duration: 'Speicherdauer'
+  table_description: 'Beschreibung'
+  embed_text: 'Hier wird ein Inhalt von @service angezeigt. Beim Laden werden Daten an @provider übertragen.'
+  embed_load: 'Inhalt laden'
+  embed_settings: 'Cookie-Einstellungen'
+  embed_privacy: 'Datenschutzerklärung des Anbieters'
+  declaration_provider: 'Anbieter'
+  declaration_purpose: 'Zweck'
+  declaration_cookies: 'Cookies'
+  declaration_no_cookies: 'Setzt keine Cookies.'

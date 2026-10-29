@@ -1,0 +1,5 @@
+cookie_consent.settings:
+  title: 'Cookie consent'
+  base_route_name: cookie_consent.settings
+  names:
+    - cookie_consent.settings

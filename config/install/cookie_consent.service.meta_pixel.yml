@@ -1,0 +1,20 @@
+langcode: de
+status: false
+dependencies: {  }
+id: meta_pixel
+label: 'Meta Pixel'
+weight: 1
+category: marketing
+provider: 'Meta Platforms Ireland Limited'
+purpose: 'Misst die Wirkung von Anzeigen auf Facebook und Instagram und zeigt Besuchern dieser Website passende Anzeigen.'
+privacy_url: 'https://www.facebook.com/privacy/policy/'
+cookies:
+  -
+    name: '_fbp'
+    duration: '3 Monate'
+    description: 'Unterscheidet Besucher'
+  -
+    name: '_fbc'
+    duration: '3 Monate'
+    description: 'Speichert Informationen zu Anzeigenklicks'
+embed_hosts: {  }

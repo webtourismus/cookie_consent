@@ -1,0 +1,34 @@
+cookie_consent.settings:
+  path: '/admin/config/system/cookie-consent'
+  defaults:
+    _form: '\Drupal\cookie_consent\Form\SettingsForm'
+    _title: 'Cookie consent'
+  requirements:
+    _permission: 'administer cookie consent'
+
+cookie_consent.log_endpoint:
+  path: '/cookie-consent/log'
+  defaults:
+    _controller: '\Drupal\cookie_consent\Controller\ConsentLogController::log'
+  methods: [POST]
+  requirements:
+    # Open to anonymous visitors: the banner logs their consent. Protected by
+    # a flood limit and payload validation in the controller.
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+cookie_consent.report:
+  path: '/admin/reports/cookie-consent'
+  defaults:
+    _controller: '\Drupal\cookie_consent\Controller\ConsentReportController::report'
+    _title: 'Cookie consent log'
+  requirements:
+    _permission: 'view cookie consent log'
+
+cookie_consent.report_export:
+  path: '/admin/reports/cookie-consent/export'
+  defaults:
+    _controller: '\Drupal\cookie_consent\Controller\ConsentReportController::export'
+  requirements:
+    _permission: 'view cookie consent log'

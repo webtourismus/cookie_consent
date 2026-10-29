@@ -1,0 +1,8 @@
+administer cookie consent:
+  title: 'Administer cookie consent'
+  description: 'Edit the cookie banner, consent categories and services.'
+  restrict access: true
+
+view cookie consent log:
+  title: 'View the cookie consent log'
+  description: 'Search and export the proof of consents given by visitors.'

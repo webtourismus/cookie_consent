@@ -1,0 +1,207 @@
+cookie_consent.settings:
+  type: config_object
+  label: 'Cookie consent settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Show the cookie banner and send consent signals'
+    revision:
+      type: integer
+      label: 'Revision of the consent texts, raising it asks all visitors again'
+    expiry_days:
+      type: integer
+      label: 'Days until visitors are asked again'
+    layout:
+      type: string
+      label: 'Banner layout'
+    position:
+      type: string
+      label: 'Banner position'
+    privacy_page:
+      type: string
+      label: 'Path of the privacy policy'
+    imprint_page:
+      type: string
+      label: 'Path of the imprint'
+    data_layer:
+      type: string
+      label: 'Name of the Google Tag Manager data layer'
+    wait_for_update:
+      type: integer
+      label: 'Milliseconds Google tags wait for a consent update'
+    ads_data_redaction:
+      type: boolean
+      label: 'Redact ads data while ad_storage is denied'
+    url_passthrough:
+      type: boolean
+      label: 'Pass ad click information through URLs while cookies are denied'
+    log_retention_days:
+      type: integer
+      label: 'Days the consent log is kept'
+    categories:
+      type: sequence
+      label: 'Consent categories'
+      sequence:
+        type: cookie_consent.category
+    texts:
+      type: mapping
+      label: 'Texts'
+      mapping:
+        consent_title:
+          type: label
+          label: 'Banner title'
+        consent_description:
+          type: text
+          label: 'Banner text'
+        revision_message:
+          type: text
+          label: 'Note when the texts have changed'
+        accept_all:
+          type: label
+          label: 'Accept all button'
+        reject_all:
+          type: label
+          label: 'Reject all button'
+        show_preferences:
+          type: label
+          label: 'Settings button'
+        preferences_title:
+          type: label
+          label: 'Settings title'
+        preferences_description:
+          type: text
+          label: 'Settings introduction'
+        save_preferences:
+          type: label
+          label: 'Save selection button'
+        close:
+          type: label
+          label: 'Close button label'
+        service_counter:
+          type: label
+          label: 'Label after the number of services'
+        privacy_link:
+          type: label
+          label: 'Privacy policy link'
+        imprint_link:
+          type: label
+          label: 'Imprint link'
+        more_title:
+          type: label
+          label: 'Title of the section about the stored consent'
+        more_description:
+          type: text
+          label: 'Text of the section about the stored consent'
+        consent_id_label:
+          type: label
+          label: 'Label of the consent ID'
+        consent_date_label:
+          type: label
+          label: 'Label of the consent date'
+        table_name:
+          type: label
+          label: 'Cookie table: name'
+        table_service:
+          type: label
+          label: 'Cookie table: service'
+        table_duration:
+          type: label
+          label: 'Cookie table: duration'
+        table_description:
+          type: label
+          label: 'Cookie table: description'
+        embed_text:
+          type: text
+          label: 'Placeholder text of blocked external content'
+        embed_load:
+          type: label
+          label: 'Placeholder button to load the content'
+        embed_settings:
+          type: label
+          label: 'Placeholder button to open the settings'
+        embed_privacy:
+          type: label
+          label: 'Placeholder link to the privacy policy of the provider'
+        declaration_provider:
+          type: label
+          label: 'Cookie declaration: provider'
+        declaration_purpose:
+          type: label
+          label: 'Cookie declaration: purpose'
+        declaration_cookies:
+          type: label
+          label: 'Cookie declaration: cookies'
+        declaration_no_cookies:
+          type: label
+          label: 'Cookie declaration: no cookies'
+
+cookie_consent.category:
+  type: mapping
+  label: 'Consent category'
+  mapping:
+    label:
+      type: label
+      label: 'Label'
+    description:
+      type: text
+      label: 'Description'
+    required:
+      type: boolean
+      label: 'Required, cannot be rejected'
+    weight:
+      type: integer
+      label: 'Weight'
+    consent_signals:
+      type: sequence
+      label: 'Google Consent Mode signals granted with this category'
+      sequence:
+        type: string
+        label: 'Signal'
+
+cookie_consent.service.*:
+  type: config_entity
+  label: 'Cookie consent service'
+  mapping:
+    id:
+      type: machine_name
+      label: 'Machine name'
+    label:
+      type: label
+      label: 'Name'
+    weight:
+      type: integer
+      label: 'Weight'
+    category:
+      type: string
+      label: 'Category'
+    provider:
+      type: label
+      label: 'Provider'
+    purpose:
+      type: text
+      label: 'Purpose'
+    privacy_url:
+      type: string
+      label: 'Privacy policy of the provider'
+    cookies:
+      type: sequence
+      label: 'Cookies'
+      sequence:
+        type: mapping
+        label: 'Cookie'
+        mapping:
+          name:
+            type: string
+            label: 'Name, * as wildcard'
+          duration:
+            type: label
+            label: 'Duration'
+          description:
+            type: label
+            label: 'Description'
+    embed_hosts:
+      type: sequence
+      label: 'Hosts of embedded content'
+      sequence:
+        type: string
+        label: 'Host'

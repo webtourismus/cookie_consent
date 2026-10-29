@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Placeholder of external content that is loaded after consent.
+ *
+ * The button with "data-cookie-consent-load" loads the content, the button
+ * with data-cc="show-preferencesModal" opens the cookie settings.
+ *
+ * Available variables:
+ * - service: Name of the service, e.g. "YouTube".
+ * - provider: Company that provides the service.
+ * - text: Text with the placeholders @service and @provider.
+ * - load_label: Label of the button that loads the content.
+ * - settings_label: Label of the button that opens the cookie settings.
+ * - privacy_label: Label of the link to the privacy policy of the provider.
+ * - privacy_url: Privacy policy of the provider, may be empty.
+ */
+#}
+<div class="cookie-consent-embed__placeholder">
+  <p class="cookie-consent-embed__text">{{ text|replace({'@service': service, '@provider': provider}) }}</p>
+  <div class="cookie-consent-embed__actions">
+    <button type="button" class="cookie-consent-embed__button" data-cookie-consent-load>{{ load_label }}</button>
+    <button type="button" class="cookie-consent-embed__button cookie-consent-embed__button--secondary" data-cc="show-preferencesModal" aria-haspopup="dialog">{{ settings_label }}</button>
+  </div>
+  {% if privacy_url %}
+    <a class="cookie-consent-embed__privacy" href="{{ privacy_url }}" target="_blank" rel="noopener">{{ privacy_label }}</a>
+  {% endif %}
+</div>

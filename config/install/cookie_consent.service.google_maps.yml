@@ -1,0 +1,14 @@
+langcode: de
+status: true
+dependencies: {  }
+id: google_maps
+label: 'Google Maps'
+weight: 2
+category: external_media
+provider: 'Google Ireland Limited'
+purpose: 'Zeigt interaktive Karten, zum Beispiel für die Anfahrt.'
+privacy_url: 'https://policies.google.com/privacy'
+cookies: {  }
+embed_hosts:
+  - maps.google.com
+  - maps.googleapis.com

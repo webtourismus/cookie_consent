@@ -1,0 +1,13 @@
+langcode: de
+status: true
+dependencies: {  }
+id: vimeo
+label: 'Vimeo'
+weight: 1
+category: external_media
+provider: 'Vimeo.com, Inc.'
+purpose: 'Zeigt eingebettete Videos.'
+privacy_url: 'https://vimeo.com/privacy'
+cookies: {  }
+embed_hosts:
+  - vimeo.com

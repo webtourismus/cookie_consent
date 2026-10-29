@@ -1,0 +1,12 @@
+langcode: de
+status: true
+dependencies: {  }
+id: google_tag_manager
+label: 'Google Tag Manager'
+weight: 1
+category: necessary
+provider: 'Google Ireland Limited'
+purpose: 'Lädt die Statistik- und Marketingdienste dieser Website entsprechend Ihrer Auswahl. Setzt selbst keine Cookies.'
+privacy_url: 'https://policies.google.com/privacy'
+cookies: {  }
+embed_hosts: {  }

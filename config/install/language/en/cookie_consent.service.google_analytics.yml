@@ -1,0 +1,10 @@
+label: 'Google Analytics'
+provider: 'Google Ireland Limited'
+purpose: 'Statistics about the use of the website, for example visited pages, time spent and origin of visitors.'
+cookies:
+  -
+    duration: '2 years'
+    description: 'Distinguishes visitors'
+  -
+    duration: '2 years'
+    description: 'Stores the session state'

@@ -1,0 +1,11 @@
+cookie_consent.settings:
+  title: 'Cookie consent'
+  description: 'Cookie banner, consent categories, services and Google Consent Mode.'
+  route_name: cookie_consent.settings
+  parent: system.admin_config_system
+
+cookie_consent.report:
+  title: 'Cookie consent log'
+  description: 'Proof of the consents given by visitors.'
+  route_name: cookie_consent.report
+  parent: system.admin_reports

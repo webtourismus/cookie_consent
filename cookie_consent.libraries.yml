@@ -1,0 +1,25 @@
+cookieconsent:
+  remote: https://github.com/orestbida/cookieconsent
+  version: 3.1.0
+  license:
+    name: MIT
+    url: https://github.com/orestbida/cookieconsent/blob/v3.1.0/LICENSE
+    gpl-compatible: true
+  js:
+    js/vendor/cookieconsent/cookieconsent.umd.js: { minified: true }
+  css:
+    component:
+      js/vendor/cookieconsent/cookieconsent.css: { minified: true }
+
+banner:
+  js:
+    js/cookie-consent.helpers.js: {}
+    js/cookie-consent.js: {}
+  css:
+    component:
+      css/cookie-consent.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once
+    - cookie_consent/cookieconsent

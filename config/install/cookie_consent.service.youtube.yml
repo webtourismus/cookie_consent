@@ -1,0 +1,15 @@
+langcode: de
+status: true
+dependencies: {  }
+id: youtube
+label: 'YouTube'
+weight: 0
+category: external_media
+provider: 'Google Ireland Limited'
+purpose: 'Zeigt eingebettete Videos.'
+privacy_url: 'https://policies.google.com/privacy'
+cookies: {  }
+embed_hosts:
+  - youtube.com
+  - youtube-nocookie.com
+  - youtu.be

@@ -1,0 +1,8 @@
+/vendor/
+/composer.lock
+/node_modules/
+/package-lock.json
+/tests/e2e/results/
+.DS_Store
+.idea/
+.vscode/

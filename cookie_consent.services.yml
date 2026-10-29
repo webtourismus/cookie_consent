@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    autowire: true
+
+  cookie_consent.settings:
+    class: Drupal\cookie_consent\ConsentSettings
+  Drupal\cookie_consent\ConsentSettings: '@cookie_consent.settings'
+
+  cookie_consent.embed_gate:
+    class: Drupal\cookie_consent\EmbedGate
+  Drupal\cookie_consent\EmbedGate: '@cookie_consent.embed_gate'
+
+  cookie_consent.declaration:
+    class: Drupal\cookie_consent\DeclarationBuilder
+  Drupal\cookie_consent\DeclarationBuilder: '@cookie_consent.declaration'
+
+  cookie_consent.log:
+    class: Drupal\cookie_consent\ConsentLog
+  Drupal\cookie_consent\ConsentLog: '@cookie_consent.log'
+
+  cookie_consent.twig_extension:
+    class: Drupal\cookie_consent\Twig\CookieConsentTwigExtension
+    tags:
+      - { name: twig.extension }

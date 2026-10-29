@@ -1,0 +1,5 @@
+entity.cookie_consent_service.add_form:
+  title: 'Add service'
+  route_name: entity.cookie_consent_service.add_form
+  appears_on:
+    - entity.cookie_consent_service.collection

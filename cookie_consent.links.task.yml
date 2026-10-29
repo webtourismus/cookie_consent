@@ -1,0 +1,15 @@
+cookie_consent.settings:
+  title: 'Settings'
+  route_name: cookie_consent.settings
+  base_route: cookie_consent.settings
+
+entity.cookie_consent_service.collection:
+  title: 'Services'
+  route_name: entity.cookie_consent_service.collection
+  base_route: cookie_consent.settings
+  weight: 10
+
+entity.cookie_consent_service.edit_form:
+  title: 'Edit'
+  route_name: entity.cookie_consent_service.edit_form
+  base_route: entity.cookie_consent_service.edit_form

@@ -10,19 +10,16 @@
  * - service: Name of the service, e.g. "YouTube".
  * - provider: Company that provides the service.
  * - text: Text with the placeholders @service and @provider.
- * - load_label: Label of the button that loads the content.
- * - settings_label: Label of the button that opens the cookie settings.
- * - privacy_label: Label of the link to the privacy policy of the provider.
  * - privacy_url: Privacy policy of the provider, may be empty.
  */
 #}
 <div class="cookie-consent-embed__placeholder">
   <p class="cookie-consent-embed__text">{{ text|replace({'@service': service, '@provider': provider}) }}</p>
   <div class="cookie-consent-embed__actions">
-    <button type="button" class="cookie-consent-embed__button" data-cookie-consent-load>{{ load_label }}</button>
-    <button type="button" class="cookie-consent-embed__button cookie-consent-embed__button--secondary" data-cc="show-preferencesModal" aria-haspopup="dialog">{{ settings_label }}</button>
+    <button type="button" class="cookie-consent-embed__button" data-cookie-consent-load>{{ 'Load content'|t }}</button>
+    <button type="button" class="cookie-consent-embed__button cookie-consent-embed__button--secondary" data-cc="show-preferencesModal" aria-haspopup="dialog">{{ 'Cookie settings'|t }}</button>
   </div>
   {% if privacy_url %}
-    <a class="cookie-consent-embed__privacy" href="{{ privacy_url }}" target="_blank" rel="noopener">{{ privacy_label }}</a>
+    <a class="cookie-consent-embed__privacy" href="{{ privacy_url }}" target="_blank" rel="noopener">{{ 'Privacy policy of the provider'|t }}</a>
   {% endif %}
 </div>

@@ -82,16 +82,12 @@ class CookieConsentHooks {
           'service' => '',
           'provider' => '',
           'text' => '',
-          'load_label' => '',
-          'settings_label' => '',
-          'privacy_label' => '',
           'privacy_url' => '',
         ],
       ],
       'cookie_consent_declaration' => [
         'variables' => [
           'categories' => [],
-          'labels' => [],
         ],
       ],
     ];
@@ -168,9 +164,9 @@ class CookieConsentHooks {
       if (!isset($item['content']) || !is_array($item['content'])) {
         continue;
       }
-      $service = $formatter === 'oembed' ? $this->embedGate->serviceForOembed($item['content']) : 'google_maps';
+      $service = $formatter === 'oembed' ? $this->embedGate->serviceForOembed($item['content'])?->id() : 'google_maps';
       if ($service !== NULL) {
-        $variables['items'][$delta]['content'] = $this->embedGate->wrap($item['content'], $service);
+        $variables['items'][$delta]['content'] = $this->embedGate->wrap($item['content'], (string) $service);
       }
     }
   }
@@ -182,7 +178,7 @@ class CookieConsentHooks {
   public function help(string $route_name, RouteMatchInterface $route_match): ?string {
     return match ($route_name) {
       'cookie_consent.settings' => '<p>' . $this->t('Google tags get the consent through Google Consent Mode. Other tags in Google Tag Manager are triggered by the data layer event %event, see the README of the module.', ['%event' => ConsentSettings::EVENT]) . '</p>',
-      'entity.cookie_consent_service.collection' => '<p>' . $this->t('Enable the services used on this website. They are listed in the banner and in the cookie declaration, which can be placed as a block or with the text filter token [cookie-consent-declaration].') . '</p>',
+      'entity.cookie_consent_service.collection' => '<p>' . $this->t('Enable the services used on this website. They are listed in the banner and in the cookie declaration of the text filter token [cookie-consent-declaration].') . '</p>',
       'cookie_consent.report' => '<p>' . $this->t('Every choice in the banner is logged with the random consent ID shown to the visitor in the <a href=":settings">cookie settings</a>. No IP addresses are stored.', [':settings' => Url::fromRoute('cookie_consent.settings')->toString()]) . '</p>',
       default => NULL,
     };

@@ -14,6 +14,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Routing\AdminContext;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\cookie_consent\Entity\ConsentServiceInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
@@ -25,6 +26,8 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
  * them as HTML.
  */
 class ConsentSettings {
+
+  use StringTranslationTrait;
 
   /**
    * Name of the cookie that stores the consent.
@@ -344,6 +347,10 @@ class ConsentSettings {
   public function legalLinks(CacheableMetadata $cacheability): array {
     $config = $this->config();
     $links = [];
+    $labels = [
+      'privacy' => $this->t('Privacy policy'),
+      'imprint' => $this->t('Imprint'),
+    ];
     foreach (['privacy' => 'privacy_page', 'imprint' => 'imprint_page'] as $key => $setting) {
       $path = trim((string) $config->get($setting));
       if ($path === '') {
@@ -358,7 +365,7 @@ class ConsentSettings {
       $cacheability->addCacheableDependency($url);
       $links[$key] = [
         'path' => $url->getGeneratedUrl(),
-        'label' => (string) $config->get('texts.' . $key . '_link'),
+        'label' => (string) $labels[$key],
       ];
     }
     return $links;
@@ -410,10 +417,10 @@ class ConsentSettings {
       if ($rows !== []) {
         $section['cookieTable'] = [
           'headers' => [
-            'name' => $this->text('table_name'),
-            'service' => $this->text('table_service'),
-            'duration' => $this->text('table_duration'),
-            'description' => $this->text('table_description'),
+            'name' => Html::escape((string) $this->t('Name')),
+            'service' => Html::escape((string) $this->t('Service')),
+            'duration' => Html::escape((string) $this->t('Duration')),
+            'description' => Html::escape((string) $this->t('Description')),
           ],
           'body' => $rows,
         ];
@@ -423,8 +430,8 @@ class ConsentSettings {
     $sections[] = [
       'title' => $this->text('more_title'),
       'description' => $this->text('more_description')
-      . '<br><br>' . $this->text('consent_id_label') . ': <span data-cookie-consent-id>–</span>'
-      . '<br>' . $this->text('consent_date_label') . ': <span data-cookie-consent-date>–</span>'
+      . '<br><br>' . Html::escape((string) $this->t('Consent ID')) . ': <span data-cookie-consent-id>–</span>'
+      . '<br>' . Html::escape((string) $this->t('Last change')) . ': <span data-cookie-consent-date>–</span>'
       . ($footer !== '' ? '<br><br>' . implode(' · ', $links) : ''),
     ];
 
@@ -446,8 +453,9 @@ class ConsentSettings {
         'acceptAllBtn' => $this->text('accept_all'),
         'acceptNecessaryBtn' => $this->text('reject_all'),
         'savePreferencesBtn' => $this->text('save_preferences'),
-        'closeIconLabel' => $this->text('close'),
-        'serviceCounterLabel' => $this->text('service_counter'),
+        'closeIconLabel' => Html::escape((string) $this->t('Close')),
+        // Singular and plural, the library picks one.
+        'serviceCounterLabel' => Html::escape((string) $this->t('service|services')),
         'sections' => $sections,
       ],
     ];

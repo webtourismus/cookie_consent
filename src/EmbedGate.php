@@ -67,14 +67,14 @@ class EmbedGate {
    *
    * @param array<string, mixed> $element
    *   The render array of the embed.
-   * @param \Drupal\cookie_consent\Entity\ConsentServiceInterface|string $service
-   *   The service or its ID.
+   * @param string $service
+   *   The machine name of the service.
    *
    * @return array<string, mixed>
    *   The wrapped render array, unchanged if the banner is disabled or the
    *   service is not enabled.
    */
-  public function wrap(array $element, ConsentServiceInterface|string $service): array {
+  public function wrap(array $element, string $service): array {
     $cacheability = CacheableMetadata::createFromRenderArray($element);
     $parts = $this->wrapperParts($service, $cacheability);
     $cacheability->applyTo($element);
@@ -91,20 +91,20 @@ class EmbedGate {
   /**
    * Returns the markup before and after the blocked content.
    *
-   * @param \Drupal\cookie_consent\Entity\ConsentServiceInterface|string $service
-   *   The service or its ID.
+   * @param string $service
+   *   The machine name of the service.
    * @param \Drupal\Core\Cache\CacheableMetadata $cacheability
    *   Collects the cacheability of the placeholder.
    *
    * @return array{0: string, 1: string}|null
    *   The opening and closing markup, NULL if nothing has to be blocked.
    */
-  protected function wrapperParts(ConsentServiceInterface|string $service, CacheableMetadata $cacheability): ?array {
+  protected function wrapperParts(string $service, CacheableMetadata $cacheability): ?array {
     $this->settings->addCacheableDependencies($cacheability);
     if (!$this->settings->isEnabled()) {
       return NULL;
     }
-    $service = $this->settings->getService(is_string($service) ? $service : (string) $service->id());
+    $service = $this->settings->getService($service);
     if ($service === NULL) {
       return NULL;
     }
@@ -115,9 +115,6 @@ class EmbedGate {
       '#service' => (string) $service->label(),
       '#provider' => $service->getProvider() ?: (string) $service->label(),
       '#text' => (string) $this->settings->config()->get('texts.embed_text'),
-      '#load_label' => (string) $this->settings->config()->get('texts.embed_load'),
-      '#settings_label' => (string) $this->settings->config()->get('texts.embed_settings'),
-      '#privacy_label' => (string) $this->settings->config()->get('texts.embed_privacy'),
       '#privacy_url' => UrlHelper::stripDangerousProtocols($service->getPrivacyUrl()),
     ];
     $placeholderMarkup = (string) $this->renderer->renderInIsolation($placeholder);

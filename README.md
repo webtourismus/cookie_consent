@@ -38,9 +38,9 @@ To switch a site over:
    ```twig
    <button type="button" data-cc="show-preferencesModal">Cookies</button>
    ```
-4. **Privacy policy**: place the "Cookie declaration" block, or enable the text
-   filter "Cookie declaration" (after "Limit allowed HTML tags") and write
-   `[cookie-consent-declaration]` into the text.
+4. **Privacy policy**: enable the text filter "Cookie declaration" (after
+   "Limit allowed HTML tags") and write `[cookie-consent-declaration]` on its
+   own line into the text.
 5. **GTM**: block the previous consent tool for the site, see below.
 6. Settings: tick "Show the cookie banner and send consent signals".
 7. `ddev drush cex`
@@ -101,6 +101,33 @@ One container can serve several sites, with and without this module.
 5. Check in GTM Preview / Tag Assistant: "Consent" tab shows `default`
    before `gtm.js` and `update` after the choice.
 
+### Basic or advanced Consent Mode
+
+Google tags work in one of two ways while consent is denied. The module sends
+the same signals for both, the choice is made per tag in GTM.
+
+| | Basic | Advanced |
+|---|---|---|
+| Before consent / after rejection | Tag does not fire, nothing is sent | Tag fires without cookies ("cookieless ping", `gcs=G100`) |
+| Data sent to Google | None | Page, time, browser data and the IP address, no cookies |
+| GTM tag setting | Consent settings → "Require additional consent": `analytics_storage` (GA4), `ad_storage` (Google Ads) | "Built-in consent checks" only, the default |
+| Reports | Only visitors with consent | Google models visitors and conversions without consent |
+
+Google only models the missing data above a minimum traffic (for GA4 e.g.
+around 1,000 events per day with and without consent each), small websites
+rarely reach it. The pings then transfer data without improving the reports.
+
+Advanced mode sends data to Google without consent. Whether a legitimate
+interest covers this is disputed in the EU, have it checked by your data
+protection officer and mention it in the privacy policy. When in doubt, use
+basic mode: nothing reaches Google before consent.
+
+To check which mode a tag uses: in GTM Preview or the browser network tab,
+requests to `google-analytics.com/g/collect` before consent mean advanced
+mode.
+
+### Pages without Google Tag Manager
+
 On pages excluded in the Google Tag settings (e.g. `/user/*`, admin pages),
 the banner does not open on its own (setting "Open the banner only on pages
 that load Google Tag Manager"). It still runs there: stored consent applies,
@@ -151,6 +178,13 @@ the retention period (default 3 years).
 
 The banner sends each choice to `POST /cookie-consent/log` (30 requests per
 hour and IP address).
+
+## Texts
+
+The wording of the banner (title, text, buttons, settings introduction,
+placeholder of blocked content) is in the settings and translated in the
+"Translate" tab. Labels such as table headers or "Load content" are
+interface translations (`translations/cookie_consent.de.po`).
 
 ## Changing texts or services
 

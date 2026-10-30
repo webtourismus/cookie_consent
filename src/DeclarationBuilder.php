@@ -25,7 +25,6 @@ class DeclarationBuilder {
   public function build(): array {
     $cacheability = new CacheableMetadata();
     $this->settings->addCacheableDependencies($cacheability);
-    $config = $this->settings->config();
 
     $categories = [];
     foreach ($this->settings->getActiveCategories() as $id => $category) {
@@ -53,17 +52,6 @@ class DeclarationBuilder {
     $build = [
       '#theme' => 'cookie_consent_declaration',
       '#categories' => $categories,
-      '#labels' => [
-        'provider' => $config->get('texts.declaration_provider'),
-        'purpose' => $config->get('texts.declaration_purpose'),
-        'cookies' => $config->get('texts.declaration_cookies'),
-        'no_cookies' => $config->get('texts.declaration_no_cookies'),
-        'privacy' => $config->get('texts.embed_privacy'),
-        'name' => $config->get('texts.table_name'),
-        'duration' => $config->get('texts.table_duration'),
-        'description' => $config->get('texts.table_description'),
-        'settings' => $config->get('texts.embed_settings'),
-      ],
     ];
     $cacheability->applyTo($build);
     return $build;

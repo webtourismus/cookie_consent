@@ -99,7 +99,7 @@ class ConsentSettingsTest extends CookieConsentKernelTestBase {
     $this->assertSame('&lt;b&gt;Privacy&lt;/b&gt;', $translation['consentModal']['title']);
     $this->assertStringEndsWith(' {{revisionMessage}}', $translation['consentModal']['description']);
     $this->assertSame('Alle ablehnen', $translation['consentModal']['acceptNecessaryBtn']);
-    $this->assertSame('<a href="/user/login">Datenschutz</a>', $translation['consentModal']['footer']);
+    $this->assertSame('<a href="/user/login">Privacy policy</a>', $translation['consentModal']['footer']);
 
     $sections = $translation['preferencesModal']['sections'];
     $this->assertSame(['analytics', 'marketing', 'external_media'], array_values(array_filter(array_column($sections, 'linkedCategory'), fn($id) => $id !== 'necessary')));
@@ -110,7 +110,7 @@ class ConsentSettingsTest extends CookieConsentKernelTestBase {
     $this->assertArrayNotHasKey('cookieTable', $sections[4], 'External media sets no first-party cookies.');
     $last = end($sections);
     $this->assertStringContainsString('<span data-cookie-consent-id>', $last['description']);
-    $this->assertStringContainsString('<a href="/user/login">Datenschutz</a>', $last['description']);
+    $this->assertStringContainsString('<a href="/user/login">Privacy policy</a>', $last['description']);
 
     $this->assertContains('config:cookie_consent.settings', $cacheability->getCacheTags());
   }

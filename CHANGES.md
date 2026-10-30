@@ -1,5 +1,15 @@
 # Changes
 
+## 1.3.0
+
+- Simpler settings: labels such as table headers, "Close" or "Load content"
+  are interface translations now, the settings keep the wording of the banner.
+  A post update removes the former label texts: run `drush updb` and
+  `drush cex`.
+- Removed the "Cookie declaration" block, use the text filter
+  `[cookie-consent-declaration]`.
+- README: basic and advanced Google Consent Mode.
+
 ## 1.2.1
 
 - Withdrawing consent also deletes cookies on parent domains, e.g. the

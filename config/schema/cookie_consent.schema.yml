@@ -80,66 +80,15 @@ cookie_consent.settings:
         save_preferences:
           type: label
           label: 'Save selection button'
-        close:
-          type: label
-          label: 'Close button label'
-        service_counter:
-          type: label
-          label: 'Label after the number of services'
-        privacy_link:
-          type: label
-          label: 'Privacy policy link'
-        imprint_link:
-          type: label
-          label: 'Imprint link'
         more_title:
           type: label
           label: 'Title of the section about the stored consent'
         more_description:
           type: text
           label: 'Text of the section about the stored consent'
-        consent_id_label:
-          type: label
-          label: 'Label of the consent ID'
-        consent_date_label:
-          type: label
-          label: 'Label of the consent date'
-        table_name:
-          type: label
-          label: 'Cookie table: name'
-        table_service:
-          type: label
-          label: 'Cookie table: service'
-        table_duration:
-          type: label
-          label: 'Cookie table: duration'
-        table_description:
-          type: label
-          label: 'Cookie table: description'
         embed_text:
           type: text
           label: 'Placeholder text of blocked external content'
-        embed_load:
-          type: label
-          label: 'Placeholder button to load the content'
-        embed_settings:
-          type: label
-          label: 'Placeholder button to open the settings'
-        embed_privacy:
-          type: label
-          label: 'Placeholder link to the privacy policy of the provider'
-        declaration_provider:
-          type: label
-          label: 'Cookie declaration: provider'
-        declaration_purpose:
-          type: label
-          label: 'Cookie declaration: purpose'
-        declaration_cookies:
-          type: label
-          label: 'Cookie declaration: cookies'
-        declaration_no_cookies:
-          type: label
-          label: 'Cookie declaration: no cookies'
 
 cookie_consent.category:
   type: mapping

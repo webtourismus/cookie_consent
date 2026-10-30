@@ -40,4 +40,31 @@ class TranslationTest extends CookieConsentKernelTestBase {
     $this->assertSame('_ga', $this->container->get('config.factory')->get('cookie_consent.service.google_analytics')->get('cookies.0.name'));
   }
 
+  /**
+   * Tests that the post update removes the former label texts.
+   */
+  public function testPostUpdateLabelTexts(): void {
+    // Written to the storage directly, the schema no longer knows the keys.
+    $storage = $this->container->get('config.storage');
+    $data = $storage->read('cookie_consent.settings');
+    $data['texts'] += ['table_name' => 'Name', 'close' => 'Schließen'];
+    $storage->write('cookie_consent.settings', $data);
+    $english = $storage->createCollection('language.en');
+    $override = $english->read('cookie_consent.settings');
+    $override['texts']['close'] = 'Close';
+    $english->write('cookie_consent.settings', $override);
+    $this->container->get('config.factory')->reset();
+
+    require_once $this->container->get('extension.list.module')->getPath('cookie_consent') . '/cookie_consent.post_update.php';
+    cookie_consent_post_update_label_texts();
+
+    $texts = $storage->read('cookie_consent.settings')['texts'];
+    $this->assertArrayNotHasKey('table_name', $texts);
+    $this->assertArrayNotHasKey('close', $texts);
+    $this->assertSame('Alle ablehnen', $texts['reject_all'], 'Other texts are kept.');
+    $overrideTexts = $english->read('cookie_consent.settings')['texts'];
+    $this->assertArrayNotHasKey('close', $overrideTexts);
+    $this->assertSame('Reject all', $overrideTexts['reject_all']);
+  }
+
 }

@@ -205,7 +205,6 @@ class SettingsForm extends ConfigFormBase {
     ];
     $descriptions = [
       'embed_text' => $this->t('@service is replaced by the name of the service, @provider by its provider.'),
-      'service_counter' => $this->t('Singular and plural separated by "|".'),
     ];
     foreach ($this->textFields() as $key => [$title, $multiline]) {
       $form['texts'][$key] = [
@@ -266,26 +265,9 @@ class SettingsForm extends ConfigFormBase {
       'preferences_title' => [$this->t('Settings title'), FALSE],
       'preferences_description' => [$this->t('Settings introduction'), TRUE],
       'save_preferences' => [$this->t('Save selection button'), FALSE],
-      'close' => [$this->t('Close button label'), FALSE],
-      'service_counter' => [$this->t('Label after the number of services'), FALSE],
-      'privacy_link' => [$this->t('Privacy policy link'), FALSE],
-      'imprint_link' => [$this->t('Imprint link'), FALSE],
       'more_title' => [$this->t('Title of the section about the stored consent'), FALSE],
       'more_description' => [$this->t('Text of the section about the stored consent'), TRUE],
-      'consent_id_label' => [$this->t('Label of the consent ID'), FALSE],
-      'consent_date_label' => [$this->t('Label of the consent date'), FALSE],
-      'table_name' => [$this->t('Cookie table: name'), FALSE],
-      'table_service' => [$this->t('Cookie table: service'), FALSE],
-      'table_duration' => [$this->t('Cookie table: duration'), FALSE],
-      'table_description' => [$this->t('Cookie table: description'), FALSE],
       'embed_text' => [$this->t('Placeholder text of blocked external content'), TRUE],
-      'embed_load' => [$this->t('Placeholder button to load the content'), FALSE],
-      'embed_settings' => [$this->t('Placeholder button to open the settings'), FALSE],
-      'embed_privacy' => [$this->t('Placeholder link to the privacy policy of the provider'), FALSE],
-      'declaration_provider' => [$this->t('Cookie declaration: provider'), FALSE],
-      'declaration_purpose' => [$this->t('Cookie declaration: purpose'), FALSE],
-      'declaration_cookies' => [$this->t('Cookie declaration: cookies'), FALSE],
-      'declaration_no_cookies' => [$this->t('Cookie declaration: no cookies'), FALSE],
     ];
   }
 

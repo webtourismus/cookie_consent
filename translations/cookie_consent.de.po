@@ -247,9 +247,6 @@ msgstr "Nur Text, HTML ist nicht erlaubt. Links zur Datenschutzerklärung und zu
 msgid "@service is replaced by the name of the service, @provider by its provider."
 msgstr "@service wird durch den Namen des Dienstes ersetzt, @provider durch den Anbieter."
 
-msgid "Singular and plural separated by \"|\"."
-msgstr "Einzahl und Mehrzahl durch „|“ getrennt."
-
 msgid "Consent log"
 msgstr "Einwilligungsprotokoll"
 
@@ -289,71 +286,20 @@ msgstr "Einleitung der Einstellungen"
 msgid "Save selection button"
 msgstr "Schaltfläche „Auswahl speichern“"
 
-msgid "Close button label"
-msgstr "Bezeichnung der Schaltfläche „Schließen“"
-
-msgid "Label after the number of services"
-msgstr "Bezeichnung nach der Anzahl der Dienste"
-
-msgid "Privacy policy link"
-msgstr "Link zur Datenschutzerklärung"
-
-msgid "Imprint link"
-msgstr "Link zum Impressum"
-
 msgid "Title of the section about the stored consent"
 msgstr "Titel des Abschnitts zur gespeicherten Einwilligung"
 
 msgid "Text of the section about the stored consent"
 msgstr "Text des Abschnitts zur gespeicherten Einwilligung"
 
-msgid "Label of the consent ID"
-msgstr "Bezeichnung der Einwilligungs-ID"
-
-msgid "Label of the consent date"
-msgstr "Bezeichnung des Einwilligungsdatums"
-
-msgid "Cookie table: name"
-msgstr "Cookie-Tabelle: Name"
-
-msgid "Cookie table: service"
-msgstr "Cookie-Tabelle: Dienst"
-
-msgid "Cookie table: duration"
-msgstr "Cookie-Tabelle: Speicherdauer"
-
-msgid "Cookie table: description"
-msgstr "Cookie-Tabelle: Beschreibung"
-
 msgid "Placeholder text of blocked external content"
 msgstr "Platzhaltertext blockierter externer Inhalte"
-
-msgid "Placeholder button to load the content"
-msgstr "Platzhalter-Schaltfläche zum Laden des Inhalts"
-
-msgid "Placeholder button to open the settings"
-msgstr "Platzhalter-Schaltfläche zum Öffnen der Einstellungen"
-
-msgid "Placeholder link to the privacy policy of the provider"
-msgstr "Platzhalter-Link zur Datenschutzerklärung des Anbieters"
-
-msgid "Cookie declaration: provider"
-msgstr "Cookie-Erklärung: Anbieter"
-
-msgid "Cookie declaration: purpose"
-msgstr "Cookie-Erklärung: Zweck"
-
-msgid "Cookie declaration: cookies"
-msgstr "Cookie-Erklärung: Cookies"
-
-msgid "Cookie declaration: no cookies"
-msgstr "Cookie-Erklärung: keine Cookies"
 
 msgid "Google tags get the consent through Google Consent Mode. Other tags in Google Tag Manager are triggered by the data layer event %event, see the README of the module."
 msgstr "Google-Tags erhalten die Einwilligung über den Google Consent Mode. Andere Tags im Google Tag Manager werden durch das Data-Layer-Ereignis %event ausgelöst, siehe README des Moduls."
 
-msgid "Enable the services used on this website. They are listed in the banner and in the cookie declaration, which can be placed as a block or with the text filter token [cookie-consent-declaration]."
-msgstr "Aktivieren Sie die Dienste, die auf dieser Website verwendet werden. Sie werden im Banner und in der Cookie-Erklärung aufgeführt, die als Block oder mit dem Textfilter-Platzhalter [cookie-consent-declaration] eingebunden werden kann."
+msgid "Enable the services used on this website. They are listed in the banner and in the cookie declaration of the text filter token [cookie-consent-declaration]."
+msgstr "Aktivieren Sie die Dienste, die auf dieser Website verwendet werden. Sie werden im Banner und in der Cookie-Erklärung des Textfilter-Platzhalters [cookie-consent-declaration] aufgeführt."
 
 msgid "Every choice in the banner is logged with the random consent ID shown to the visitor in the <a href=\":settings\">cookie settings</a>. No IP addresses are stored."
 msgstr "Jede Auswahl im Banner wird mit der zufälligen Einwilligungs-ID protokolliert, die Besucher in den <a href=\":settings\">Cookie-Einstellungen</a> sehen. Es werden keine IP-Adressen gespeichert."
@@ -480,3 +426,24 @@ msgstr "Seiten, die in den Google-Tag-Einstellungen ausgeschlossen sind, z. B. d
 
 msgid "The banner opens only on pages that load Google Tag Manager."
 msgstr "Das Banner öffnet sich nur auf Seiten, die den Google Tag Manager laden."
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "service|services"
+msgstr "Dienst|Dienste"
+
+msgid "Last change"
+msgstr "Letzte Änderung"
+
+msgid "Load content"
+msgstr "Inhalt laden"
+
+msgid "Cookie settings"
+msgstr "Cookie-Einstellungen"
+
+msgid "Sets no cookies."
+msgstr "Setzt keine Cookies."
+
+msgid "Labels of the banner are translated with the interface translation."
+msgstr "Bezeichnungen des Banners werden über die Oberflächenübersetzung übersetzt."

@@ -12,17 +12,12 @@ use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
- * Tests the cookie declaration, its block and its text filter.
+ * Tests the cookie declaration and its text filter.
  */
 #[CoversClass(DeclarationBuilder::class)]
 #[Group('cookie_consent')]
 #[RunTestsInSeparateProcesses]
 class DeclarationTest extends CookieConsentKernelTestBase {
-
-  /**
-   * {@inheritdoc}
-   */
-  protected static $modules = ['block'];
 
   /**
    * Renders a render array.
@@ -48,19 +43,11 @@ class DeclarationTest extends CookieConsentKernelTestBase {
     $this->assertStringContainsString('<td>2 Jahre</td>', $html);
     $this->assertStringContainsString('href="https://policies.google.com/privacy"', $html);
     $this->assertStringContainsString('Ads &lt;script&gt;', $html);
-    $this->assertStringContainsString('Setzt keine Cookies.', $html, 'Google Tag Manager sets no cookies.');
+    $this->assertStringContainsString('Sets no cookies.', $html, 'Google Tag Manager sets no cookies.');
     $this->assertStringContainsString('data-cc="show-preferencesModal"', $html);
     $this->assertStringNotContainsString('Meta Pixel', $html, 'Disabled services are not listed.');
     $this->assertStringNotContainsString('Funktional', $html, 'Categories without services are not listed.');
     $this->assertContains('config:cookie_consent_service_list', $build['#cache']['tags']);
-  }
-
-  /**
-   * Tests the block.
-   */
-  public function testBlock(): void {
-    $block = $this->container->get('plugin.manager.block')->createInstance('cookie_consent_declaration');
-    $this->assertStringContainsString('<h4>YouTube</h4>', $this->renderBuild($block->build()));
   }
 
   /**

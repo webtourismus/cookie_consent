@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Drupal\cookie_consent\Form;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Config\TypedConfigManagerInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element\PathElement;
@@ -12,8 +15,20 @@ use Drupal\cookie_consent\ConsentSettings;
 
 /**
  * Configures the cookie banner.
+ *
+ * Dependencies are autowired.
+ *
+ * @see \Drupal\Core\DependencyInjection\AutowireTrait
  */
 class SettingsForm extends ConfigFormBase {
+
+  public function __construct(
+    ConfigFactoryInterface $config_factory,
+    TypedConfigManagerInterface $typed_config_manager,
+    protected ModuleHandlerInterface $moduleHandler,
+  ) {
+    parent::__construct($config_factory, $typed_config_manager);
+  }
 
   /**
    * {@inheritdoc}
@@ -95,6 +110,13 @@ class SettingsForm extends ConfigFormBase {
       '#description' => $this->t('Path of the imprint, e.g. /node/13. Linked in the banner, the banner does not open on its own there.'),
       '#convert_path' => PathElement::CONVERT_NONE,
       '#config_target' => $target . 'imprint_page',
+    ];
+    $form['general']['require_google_tag'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Open the banner only on pages that load Google Tag Manager'),
+      '#description' => $this->t('Pages excluded in the Google Tag settings, e.g. the login page, do not open the banner. Stored consent, blocked content and the cookie settings still work there.'),
+      '#config_target' => $target . 'require_google_tag',
+      '#access' => $this->moduleHandler->moduleExists('google_tag'),
     ];
     $form['general']['youtube_nocookie'] = [
       '#type' => 'checkbox',

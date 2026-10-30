@@ -6,8 +6,10 @@ namespace Drupal\Tests\cookie_consent\Kernel;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\cookie_consent\ConsentSettings;
 use Drupal\cookie_consent\Entity\ConsentService;
+use Drupal\cookie_consent\Hook\CookieConsentHooks;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
@@ -159,6 +161,46 @@ class ConsentSettingsTest extends CookieConsentKernelTestBase {
   public function testShippedDisabled(): void {
     $storage = new FileStorage($this->container->get('extension.list.module')->getPath('cookie_consent') . '/config/install');
     $this->assertFalse($storage->read(ConsentSettings::CONFIG_NAME)['enabled']);
+  }
+
+  /**
+   * Tests that the banner opens only on pages with Google Tag Manager.
+   */
+  public function testAutoShow(): void {
+    // Without the google_tag module the banner always opens.
+    $this->assertTrue($this->consentSettings()->autoShow([]));
+
+    $moduleHandler = $this->createMock(ModuleHandlerInterface::class);
+    $moduleHandler->method('moduleExists')->willReturnMap([['google_tag', TRUE]]);
+    $settings = new ConsentSettings(
+      $this->container->get('config.factory'),
+      $this->container->get('entity_type.manager'),
+      $this->container->get('language_manager'),
+      $this->container->get('router.admin_context'),
+      $this->container->get('extension.list.module'),
+      $this->container->getParameter('app.root'),
+      $moduleHandler,
+    );
+    $this->assertTrue($settings->autoShow(['core/drupal', 'google_tag/gtm', 'google_tag/gtag']));
+    $this->assertTrue($settings->autoShow(['google_tag/gtag']));
+    $this->assertFalse($settings->autoShow(['core/drupal', 'cookie_consent/banner']), 'Pages excluded in the Google Tag settings.');
+
+    $this->setConsentSetting('require_google_tag', FALSE);
+    $this->assertTrue($settings->autoShow([]));
+  }
+
+  /**
+   * Tests that the page attachments alter hook passes the decision on.
+   */
+  public function testPageAttachmentsAlter(): void {
+    $hooks = $this->container->get('class_resolver')->getInstanceFromDefinition(CookieConsentHooks::class);
+    $attachments = [];
+    $hooks->pageAttachmentsAlter($attachments);
+    $this->assertSame([], $attachments, 'Pages without the banner are not changed.');
+
+    $this->consentSettings()->attach($attachments);
+    $hooks->pageAttachmentsAlter($attachments);
+    $this->assertTrue($attachments['#attached']['drupalSettings']['cookieConsent']['autoShow']);
   }
 
   /**

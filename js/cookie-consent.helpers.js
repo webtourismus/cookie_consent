@@ -127,7 +127,9 @@
 
     return {
       revision: settings.revision,
-      autoShow: !isLegalPage(pathname, settings.legalPaths),
+      autoShow:
+        settings.autoShow !== false &&
+        !isLegalPage(pathname, settings.legalPaths),
       hideFromBots: true,
       manageScriptTags: true,
       autoClearCookies: true,

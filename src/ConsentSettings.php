@@ -10,6 +10,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleExtensionList;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Routing\AdminContext;
@@ -81,6 +82,7 @@ class ConsentSettings {
     protected ModuleExtensionList $moduleList,
     #[Autowire(param: 'app.root')]
     protected string $appRoot,
+    protected ModuleHandlerInterface $moduleHandler,
   ) {}
 
   /**
@@ -104,6 +106,24 @@ class ConsentSettings {
    */
   public function useYoutubeNocookie(): bool {
     return (bool) $this->config()->get('youtube_nocookie');
+  }
+
+  /**
+   * Whether the banner opens on its own on a page.
+   *
+   * With the google_tag module, only pages that load a Google tag need a
+   * decision. Its container conditions exclude e.g. the login page. The
+   * banner still runs there, so stored consent, embeds and the settings
+   * button keep working.
+   *
+   * @param string[] $libraries
+   *   The libraries attached to the page.
+   */
+  public function autoShow(array $libraries): bool {
+    if (!$this->config()->get('require_google_tag') || !$this->moduleHandler->moduleExists('google_tag')) {
+      return TRUE;
+    }
+    return array_intersect(['google_tag/gtm', 'google_tag/gtag'], $libraries) !== [];
   }
 
   /**

@@ -1,5 +1,12 @@
 # Changes
 
+## 1.2.0
+
+- The banner opens only on pages that load Google Tag Manager (setting, on by
+  default, only with the google_tag module). Pages excluded in the Google Tag
+  settings keep stored consent, blocked content and the cookie settings.
+- Post update enables it on existing sites: run `drush updb` and `drush cex`.
+
 ## 1.1.0
 
 - YouTube videos are played from youtube-nocookie.com (setting "Play YouTube

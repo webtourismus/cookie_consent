@@ -43,6 +43,22 @@ class CookieConsentHooks {
   }
 
   /**
+   * Implements hook_page_attachments_alter().
+   *
+   * Runs after google_tag has attached Google Tag Manager or not.
+   *
+   * @param array<mixed> $attachments
+   *   The page attachments.
+   */
+  #[Hook('page_attachments_alter')]
+  public function pageAttachmentsAlter(array &$attachments): void {
+    if (!isset($attachments['#attached']['drupalSettings']['cookieConsent'])) {
+      return;
+    }
+    $attachments['#attached']['drupalSettings']['cookieConsent']['autoShow'] = $this->settings->autoShow($attachments['#attached']['library'] ?? []);
+  }
+
+  /**
    * Implements hook_cron().
    *
    * Deletes consent log entries older than the retention period.

@@ -38,6 +38,9 @@ cookie_consent.settings:
     youtube_nocookie:
       type: boolean
       label: 'Play YouTube videos from youtube-nocookie.com'
+    require_google_tag:
+      type: boolean
+      label: 'Open the banner only on pages that load Google Tag Manager'
     log_retention_days:
       type: integer
       label: 'Days the consent log is kept'

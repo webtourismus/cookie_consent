@@ -123,3 +123,10 @@ test('libraryConfig does not open the banner on legal pages', () => {
   const config = helpers.libraryConfig(settings, {}, '/en/privacy');
   assert.equal(config.autoShow, false);
 });
+
+test('libraryConfig does not open the banner on pages without GTM', () => {
+  const withoutGtm = { ...settings, autoShow: false };
+  assert.equal(helpers.libraryConfig(withoutGtm, {}, '/en/rooms').autoShow, false);
+  const withGtm = { ...settings, autoShow: true };
+  assert.equal(helpers.libraryConfig(withGtm, {}, '/en/rooms').autoShow, true);
+});

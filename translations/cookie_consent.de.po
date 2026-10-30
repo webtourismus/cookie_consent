@@ -471,3 +471,12 @@ msgstr "Gilt auch, solange das Banner deaktiviert ist. Videos benötigen trotzde
 
 msgid "YouTube videos are played from youtube-nocookie.com."
 msgstr "YouTube-Videos werden über youtube-nocookie.com abgespielt."
+
+msgid "Open the banner only on pages that load Google Tag Manager"
+msgstr "Banner nur auf Seiten öffnen, die den Google Tag Manager laden"
+
+msgid "Pages excluded in the Google Tag settings, e.g. the login page, do not open the banner. Stored consent, blocked content and the cookie settings still work there."
+msgstr "Seiten, die in den Google-Tag-Einstellungen ausgeschlossen sind, z. B. die Anmeldeseite, öffnen das Banner nicht. Gespeicherte Einwilligungen, blockierte Inhalte und die Cookie-Einstellungen funktionieren dort weiterhin."
+
+msgid "The banner opens only on pages that load Google Tag Manager."
+msgstr "Das Banner öffnet sich nur auf Seiten, die den Google Tag Manager laden."

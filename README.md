@@ -22,8 +22,8 @@ ddev drush locale:import de modules/contrib/cookie_consent/translations/cookie_c
 ```
 
 The module is installed **disabled**: no banner, no consent signals, no
-blocked embeds. Install it on sites that still use another consent tool and switch
-over later, site by site.
+blocked embeds. Install it on sites that still use another consent tool
+and switch over later, site by site.
 
 To switch a site over:
 
@@ -33,7 +33,8 @@ To switch a site over:
 2. **Services** tab: enable the services used on this website (Meta Pixel is
    disabled by default), add others, e.g. a booking widget.
 3. **Theme**: the "Cookies" link in the footer opens the settings with
-   `data-cc="show-preferencesModal"`:
+   `data-cc="show-preferencesModal"`. It also works on pages where the banner
+   does not open on its own (privacy policy, imprint, pages without GTM):
    ```twig
    <button type="button" data-cc="show-preferencesModal">Cookies</button>
    ```
@@ -99,6 +100,11 @@ One container can serve several sites, with and without this module.
    visitor's choice, so the tag runs exactly once in both cases.
 5. Check in GTM Preview / Tag Assistant: "Consent" tab shows `default`
    before `gtm.js` and `update` after the choice.
+
+On pages excluded in the Google Tag settings (e.g. `/user/*`, admin pages),
+the banner does not open on its own (setting "Open the banner only on pages
+that load Google Tag Manager"). It still runs there: stored consent applies,
+blocked content can be loaded and the cookie settings can be opened.
 
 ## Embeds
 

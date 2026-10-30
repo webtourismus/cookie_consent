@@ -11,6 +11,7 @@ wait_for_update: 500
 ads_data_redaction: true
 url_passthrough: false
 youtube_nocookie: true
+require_google_tag: true
 log_retention_days: 1095
 categories:
   necessary:

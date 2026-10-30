@@ -215,7 +215,12 @@
   };
 
   CookieConsent.run(
-    helpers.libraryConfig(settings, callbacks, window.location.pathname),
+    helpers.libraryConfig(
+      settings,
+      callbacks,
+      window.location.pathname,
+      window.location.hostname,
+    ),
   ).then(() => {
     ready = true;
     runAcceptedLoaders();

@@ -25,6 +25,54 @@
   }
 
   /**
+   * Returns the parent domains of a host name, without the top-level domain.
+   *
+   * Google Analytics and Google Ads set their cookies on the highest possible
+   * domain, e.g. ".example.com" for "booking.example.com". The banner library
+   * only deletes cookies of the host itself and of the host without "www.".
+   *
+   * @param {string} hostname
+   *   The host name, e.g. "www.booking.example.com".
+   *
+   * @return {string[]}
+   *   The parent domains, e.g. ["booking.example.com", "example.com"].
+   */
+  function parentDomains(hostname) {
+    if (/^[\d.]+$/.test(hostname) || hostname.indexOf(':') !== -1) {
+      return [];
+    }
+    const parts = hostname.split('.');
+    const domains = [];
+    for (let i = 1; i < parts.length - 1; i++) {
+      domains.push(parts.slice(i).join('.'));
+    }
+    return domains;
+  }
+
+  /**
+   * Returns the cookies to delete on rejection, on the host and its parents.
+   *
+   * @param {string[]} names
+   *   The cookie names, "*" as wildcard.
+   * @param {string} hostname
+   *   The host name of the page.
+   *
+   * @return {object[]}
+   *   The cookie items of the banner library.
+   */
+  function clearItems(names, hostname) {
+    const items = [];
+    names.forEach((name) => {
+      const pattern = cookiePattern(name);
+      items.push({ name: pattern });
+      parentDomains(hostname).forEach((domain) => {
+        items.push({ name: pattern, domain });
+      });
+    });
+    return items;
+  }
+
+  /**
    * Whether the banner must not open on its own on this page.
    *
    * Visitors have to be able to read the privacy policy and the imprint
@@ -96,11 +144,13 @@
    *   The callbacks onFirstConsent, onConsent, onChange and onModalShow.
    * @param {string} pathname
    *   The path of the current page.
+   * @param {string} [hostname]
+   *   The host name of the current page.
    *
    * @return {object}
    *   The configuration.
    */
-  function libraryConfig(settings, callbacks, pathname) {
+  function libraryConfig(settings, callbacks, pathname, hostname = '') {
     const categories = {};
     Object.keys(settings.categories).forEach((id) => {
       const category = settings.categories[id];
@@ -108,9 +158,7 @@
       let cookies = [];
       Object.keys(category.services).forEach((serviceId) => {
         const service = category.services[serviceId];
-        const serviceCookies = service.cookies.map((name) => ({
-          name: cookiePattern(name),
-        }));
+        const serviceCookies = clearItems(service.cookies, hostname);
         services[serviceId] = {
           label: service.label,
           cookies: serviceCookies,
@@ -162,6 +210,8 @@
 
   const helpers = {
     cookiePattern,
+    parentDomains,
+    clearItems,
     isLegalPage,
     withService,
     logPayload,

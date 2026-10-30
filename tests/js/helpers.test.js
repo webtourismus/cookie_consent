@@ -47,6 +47,26 @@ test('cookiePattern keeps plain names and converts wildcards', () => {
   assert.ok(!dotted.test('axbc'), 'dots are literal');
 });
 
+test('parentDomains lists the domains cookies can be set on', () => {
+  assert.deepEqual(helpers.parentDomains('factory.dev1.example.com'), [
+    'dev1.example.com',
+    'example.com',
+  ]);
+  assert.deepEqual(helpers.parentDomains('www.hotel.at'), ['hotel.at']);
+  assert.deepEqual(helpers.parentDomains('hotel.at'), []);
+  assert.deepEqual(helpers.parentDomains('localhost'), []);
+  assert.deepEqual(helpers.parentDomains('127.0.0.1'), []);
+});
+
+test('clearItems deletes cookies on the host and its parent domains', () => {
+  const items = helpers.clearItems(['_ga', '_ga_*'], 'www.hotel.at');
+  assert.equal(items.length, 4);
+  assert.deepEqual(items[0], { name: '_ga' });
+  assert.deepEqual(items[1], { name: '_ga', domain: 'hotel.at' });
+  assert.ok(items[2].name instanceof RegExp);
+  assert.equal(items[3].domain, 'hotel.at');
+});
+
 test('isLegalPage ignores trailing slashes', () => {
   assert.ok(helpers.isLegalPage('/en/privacy/', settings.legalPaths));
   assert.ok(helpers.isLegalPage('/en/imprint', settings.legalPaths));
@@ -115,6 +135,11 @@ test('libraryConfig maps the settings to the banner library', () => {
   );
   assert.equal(cleared[0], '_ga');
   assert.ok(cleared[1] instanceof RegExp);
+  const onSubdomain = helpers.libraryConfig(settings, {}, '/', 'en.hotel.at');
+  assert.deepEqual(
+    onSubdomain.categories.analytics.services.google_analytics.cookies[1],
+    { name: '_ga', domain: 'hotel.at' },
+  );
   assert.equal(config.language.default, 'en');
   assert.equal(config.language.translations.en, settings.translation);
 });

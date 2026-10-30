@@ -220,6 +220,29 @@ test('Google Maps is loaded only after consent', { skip }, async () => {
   await context.close();
 });
 
+test('withdrawal deletes analytics cookies on parent domains', { skip }, async () => {
+  const { context, page } = await openPage(videoPath);
+  await answerBanner(page, 'Alle akzeptieren');
+  const host = new URL(baseUrl).hostname;
+  const parent = host.split('.').slice(-2).join('.');
+  // Google Analytics sets its cookies on the highest possible domain.
+  await context.addCookies([
+    { name: '_ga', value: 'GA1.1.1.1', domain: `.${parent}`, path: '/' },
+    { name: '_ga_TEST', value: 'GS1.1.1', domain: `.${parent}`, path: '/' },
+  ]);
+
+  await page.evaluate(() => Drupal.cookieConsent.show());
+  const logged = page.waitForResponse((r) => r.url().includes('/cookie-consent/log'));
+  await page.locator('#cc-main .pm').getByRole('button', { name: 'Alle ablehnen' }).click();
+  await logged;
+
+  const names = (await context.cookies()).map((c) => c.name);
+  assert.ok(!names.includes('_ga'), '_ga is deleted.');
+  assert.ok(!names.includes('_ga_TEST'), '_ga_* is deleted.');
+  assert.ok(names.includes('cookie_consent'));
+  await context.close();
+});
+
 test('preferences show the consent ID', { skip }, async () => {
   const { context, page } = await openPage(videoPath);
   await answerBanner(page, 'Alle ablehnen');

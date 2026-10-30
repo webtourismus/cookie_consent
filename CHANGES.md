@@ -1,5 +1,11 @@
 # Changes
 
+## 1.2.1
+
+- Withdrawing consent also deletes cookies on parent domains, e.g. the
+  Google Analytics cookies on ".example.com" for "booking.example.com".
+  Before, only cookies of the host itself and without "www." were deleted.
+
 ## 1.2.0
 
 - The banner opens only on pages that load Google Tag Manager (setting, on by

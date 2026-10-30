@@ -12,6 +12,8 @@ use Drupal\Core\Url;
 use Drupal\cookie_consent\ConsentLog;
 use Drupal\cookie_consent\ConsentSettings;
 use Drupal\cookie_consent\EmbedGate;
+use Drupal\media\IFrameMarkup;
+use Drupal\media\OEmbed\Resource;
 
 /**
  * Hook implementations for cookie_consent.
@@ -107,6 +109,28 @@ class CookieConsentHooks {
     $libraries['google']['drupalSettings']['cookieConsentGoogleMaps']['src'] = (string) reset($external);
     $libraries['google']['dependencies'][] = 'core/drupal';
     $libraries['google']['dependencies'][] = 'core/drupalSettings';
+  }
+
+  /**
+   * Implements hook_preprocess_HOOK() for media_oembed_iframe.
+   *
+   * Plays YouTube videos from youtube-nocookie.com, which stores nothing in
+   * the browser before the video is played. Loading the video still needs
+   * consent, the embed stays blocked until then.
+   *
+   * @param array<string, mixed> $variables
+   *   The template variables.
+   */
+  #[Hook('preprocess_media_oembed_iframe')]
+  public function preprocessMediaOembedIframe(array &$variables): void {
+    $variables['#cache']['tags'] = array_merge($variables['#cache']['tags'] ?? [], $this->settings->config()->getCacheTags());
+    $resource = $variables['resource'] ?? NULL;
+    if (!$this->settings->useYoutubeNocookie() || !$resource instanceof Resource || $resource->getProvider()?->getName() !== 'YouTube') {
+      return;
+    }
+    $variables['media'] = IFrameMarkup::create(
+      preg_replace('#//(?:www\.)?youtube\.com/embed/#i', '//www.youtube-nocookie.com/embed/', (string) $variables['media']) ?? (string) $variables['media'],
+    );
   }
 
   /**

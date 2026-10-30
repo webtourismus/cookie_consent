@@ -98,6 +98,15 @@ class ConsentSettings {
   }
 
   /**
+   * Whether YouTube videos are played from youtube-nocookie.com.
+   *
+   * Independent of the banner, sites with another consent tool use it too.
+   */
+  public function useYoutubeNocookie(): bool {
+    return (bool) $this->config()->get('youtube_nocookie');
+  }
+
+  /**
    * Whether the banner and the consent signals belong on the current page.
    */
   public function isActive(): bool {

@@ -35,6 +35,9 @@ cookie_consent.settings:
     url_passthrough:
       type: boolean
       label: 'Pass ad click information through URLs while cookies are denied'
+    youtube_nocookie:
+      type: boolean
+      label: 'Play YouTube videos from youtube-nocookie.com'
     log_retention_days:
       type: integer
       label: 'Days the consent log is kept'

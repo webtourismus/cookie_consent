@@ -96,6 +96,12 @@ class SettingsForm extends ConfigFormBase {
       '#convert_path' => PathElement::CONVERT_NONE,
       '#config_target' => $target . 'imprint_page',
     ];
+    $form['general']['youtube_nocookie'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Play YouTube videos from youtube-nocookie.com'),
+      '#description' => $this->t('Applies even while the banner is disabled. Videos still need consent: YouTube receives data once the video is loaded.'),
+      '#config_target' => $target . 'youtube_nocookie',
+    ];
     $form['general']['layout'] = [
       '#type' => 'select',
       '#title' => $this->t('Banner layout'),

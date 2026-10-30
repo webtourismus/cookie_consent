@@ -1,5 +1,12 @@
 # Changes
 
+## 1.1.0
+
+- YouTube videos are played from youtube-nocookie.com (setting "Play YouTube
+  videos from youtube-nocookie.com", enabled by default). Applies even while
+  the banner is disabled.
+- Post update enables it on existing sites: run `drush updb` and `drush cex`.
+
 ## 1.0.0
 
 - Installed with the banner disabled, so the module can be rolled out to

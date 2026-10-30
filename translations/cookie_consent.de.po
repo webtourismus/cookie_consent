@@ -462,3 +462,12 @@ msgstr "Speicherdauer"
 
 msgid "Host"
 msgstr "Host"
+
+msgid "Play YouTube videos from youtube-nocookie.com"
+msgstr "YouTube-Videos über youtube-nocookie.com abspielen"
+
+msgid "Applies even while the banner is disabled. Videos still need consent: YouTube receives data once the video is loaded."
+msgstr "Gilt auch, solange das Banner deaktiviert ist. Videos benötigen trotzdem eine Einwilligung: YouTube erhält Daten, sobald das Video geladen wird."
+
+msgid "YouTube videos are played from youtube-nocookie.com."
+msgstr "YouTube-Videos werden über youtube-nocookie.com abgespielt."

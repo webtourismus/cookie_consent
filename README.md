@@ -126,6 +126,12 @@ stays open.
 
 Disabled or unknown services are not blocked.
 
+**youtube-nocookie.com**: YouTube videos (oEmbed) are played from
+youtube-nocookie.com, which stores nothing in the browser before the video is
+played. It is a setting, enabled by default, and applies even while the banner
+is disabled. It does not replace consent: YouTube still receives data once the
+video loads, so the embed stays blocked until then.
+
 Styling: custom properties `--cookie-consent-embed-*` in
 `css/cookie-consent.css`, banner colors with the
 [`--cc-*` properties](https://cookieconsent.orestbida.com/advanced/ui-customization.html).

@@ -10,6 +10,7 @@ data_layer: dataLayer
 wait_for_update: 500
 ads_data_redaction: true
 url_passthrough: false
+youtube_nocookie: true
 log_retention_days: 1095
 categories:
   necessary:

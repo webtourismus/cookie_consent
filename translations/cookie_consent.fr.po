@@ -1,0 +1,452 @@
+# French translation of cookie_consent.
+msgid ""
+msgstr ""
+"Project-Id-Version: cookie_consent\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Service"
+msgstr "Service"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "Provider"
+msgstr "Fournisseur"
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid "Used"
+msgstr "Utilisé"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Consents of the last @days days"
+msgstr "Consentements des @days derniers jours"
+
+msgid "Choice"
+msgstr "Choix"
+
+msgid "Consents"
+msgstr "Consentements"
+
+msgid "Share"
+msgstr "Part"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Consent ID"
+msgstr "ID de consentement"
+
+msgid "Accepted categories"
+msgstr "Catégories acceptées"
+
+msgid "Revision"
+msgstr "Révision"
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "No consents logged yet."
+msgstr "Aucun consentement enregistré pour l’instant."
+
+msgid "Export as CSV"
+msgstr "Exporter en CSV"
+
+msgid "Accept all"
+msgstr "Tout accepter"
+
+msgid "Only necessary"
+msgstr "Uniquement nécessaires"
+
+msgid "Custom selection"
+msgstr "Sélection personnalisée"
+
+msgid "Cookie consent service"
+msgstr "Service de consentement aux cookies"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "service"
+msgstr "service"
+
+msgid "services"
+msgstr "services"
+
+msgid "@count service"
+msgid_plural "@count services"
+msgstr[0] "@count service"
+msgstr[1] "@count services"
+
+msgid "Visitors find their consent ID in the cookie settings of the website."
+msgstr "Les visiteurs trouvent leur ID de consentement dans les paramètres des cookies du site."
+
+msgid "Search"
+msgstr "Rechercher"
+
+msgid "Reset"
+msgstr "Réinitialiser"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Shown to visitors, e.g. \"Google Analytics\"."
+msgstr "Affiché aux visiteurs, p. ex. « Google Analytics »."
+
+msgid "Used in the data layer (cookie_consent.services.ID), in the Twig filter cookie_consent_embed and in the consent log."
+msgstr "Utilisé dans le data layer (cookie_consent.services.ID), dans le filtre Twig cookie_consent_embed et dans le journal des consentements."
+
+msgid "Used on this website"
+msgstr "Utilisé sur ce site"
+
+msgid "Only enabled services are shown in the banner and the cookie declaration."
+msgstr "Seuls les services activés sont affichés dans la bannière et dans la déclaration des cookies."
+
+msgid "Company that receives the data, e.g. \"Google Ireland Limited\"."
+msgstr "Entreprise qui reçoit les données, p. ex. « Google Ireland Limited »."
+
+msgid "Purpose"
+msgstr "Finalité"
+
+msgid "Privacy policy of the provider"
+msgstr "Politique de confidentialité du fournisseur"
+
+msgid "One cookie per line: name | duration | description. Use * as wildcard, e.g. _ga_*. First-party cookies are deleted when the visitor rejects the service."
+msgstr "Un cookie par ligne : nom | durée | description. * comme caractère générique, p. ex. _ga_*. Les cookies propriétaires sont supprimés lorsque le visiteur refuse le service."
+
+msgid "Hosts of embedded content"
+msgstr "Hôtes des contenus intégrés"
+
+msgid "One host per line, e.g. youtube.com. Subdomains are included. Videos (oEmbed) from these hosts are loaded only after consent."
+msgstr "Un hôte par ligne, p. ex. youtube.com. Les sous-domaines sont inclus. Les vidéos (oEmbed) de ces hôtes ne sont chargées qu’après consentement."
+
+msgid "Weight"
+msgstr "Poids"
+
+msgid "Order within the category."
+msgstr "Ordre au sein de la catégorie."
+
+msgid "Invalid cookie name \"@name\"."
+msgstr "Nom de cookie « @name » non valide."
+
+msgid "Invalid host \"@host\", enter it without protocol and path."
+msgstr "Hôte « @host » non valide, saisissez-le sans protocole ni chemin."
+
+msgid "The privacy policy must be an absolute URL."
+msgstr "La politique de confidentialité doit être une URL absolue."
+
+msgid "Saved the service %label. Raise the revision in the settings if visitors have to consent again."
+msgstr "Le service %label a été enregistré. Augmentez la révision dans les paramètres si les visiteurs doivent donner à nouveau leur consentement."
+
+msgid "The banner asks visitors for consent and passes their choice to Google Tag Manager (Google Consent Mode v2). The services that need consent are managed in the <a href=\":services\">Services</a> tab. Texts are translated in the \"Translate\" tab."
+msgstr "La bannière demande le consentement des visiteurs et transmet leur choix à Google Tag Manager (Google Consent Mode v2). Les services qui nécessitent un consentement sont gérés dans l’onglet <a href=\":services\">Services</a>. Les textes sont traduits dans l’onglet « Traduire »."
+
+msgid "General"
+msgstr "Général"
+
+msgid "Show the cookie banner and send consent signals"
+msgstr "Afficher la bannière des cookies et envoyer les signaux de consentement"
+
+msgid "Before enabling, make sure no other consent tool (e.g. one loaded by Google Tag Manager) runs on this website."
+msgstr "Avant l’activation, assurez-vous qu’aucun autre outil de consentement (p. ex. chargé par Google Tag Manager) ne fonctionne sur ce site."
+
+msgid "Revision of the consent texts"
+msgstr "Révision des textes de consentement"
+
+msgid "Raise the number after changing services or purposes: all visitors are asked again."
+msgstr "Augmentez le nombre après avoir modifié des services ou des finalités : tous les visiteurs sont à nouveau sollicités."
+
+msgid "Ask again after"
+msgstr "Redemander après"
+
+msgid "days"
+msgstr "jours"
+
+msgid "Common: 182 days (6 months), at most 395 days (13 months)."
+msgstr "Usuel : 182 jours (6 mois), au maximum 395 jours (13 mois)."
+
+msgid "Privacy policy"
+msgstr "Protection des données"
+
+msgid "Path of the privacy policy, e.g. /node/12. Linked in the banner, the banner does not open on its own there."
+msgstr "Chemin de la politique de confidentialité, p. ex. /node/12. Lié dans la bannière, la bannière ne s’y ouvre pas d’elle-même."
+
+msgid "Imprint"
+msgstr "Mentions légales"
+
+msgid "Path of the imprint, e.g. /node/13. Linked in the banner, the banner does not open on its own there."
+msgstr "Chemin des mentions légales, p. ex. /node/13. Lié dans la bannière, la bannière ne s’y ouvre pas d’elle-même."
+
+msgid "Banner layout"
+msgstr "Mise en page de la bannière"
+
+msgid "Banner position"
+msgstr "Position de la bannière"
+
+msgid "Google Consent Mode"
+msgstr "Google Consent Mode"
+
+msgid "Data layer"
+msgstr "Data layer"
+
+msgid "Name of the Google Tag Manager data layer, usually \"dataLayer\"."
+msgstr "Nom du data layer de Google Tag Manager, généralement « dataLayer »."
+
+msgid "Wait for consent update"
+msgstr "Attendre la mise à jour du consentement"
+
+msgid "milliseconds"
+msgstr "millisecondes"
+
+msgid "How long Google tags wait for the consent of a first-time visitor before they send data without cookies."
+msgstr "Durée pendant laquelle les balises Google attendent le consentement d’un nouveau visiteur avant d’envoyer des données sans cookies."
+
+msgid "Redact ads data without marketing consent"
+msgstr "Masquer les données publicitaires sans consentement marketing"
+
+msgid "Google Ads removes click identifiers from requests while ad_storage is denied."
+msgstr "Google Ads supprime les identifiants de clic des requêtes tant que ad_storage est refusé."
+
+msgid "Pass ad click information through URLs"
+msgstr "Transmettre les informations de clic publicitaire via les URL"
+
+msgid "Improves conversion measurement without cookies by adding parameters to internal links. Changes the URLs of the website."
+msgstr "Améliore la mesure des conversions sans cookies en ajoutant des paramètres aux liens internes. Modifie les URL du site."
+
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Categories without enabled services are not shown to visitors."
+msgstr "Les catégories sans service activé ne sont pas affichées aux visiteurs."
+
+msgid "Grants: @signals"
+msgstr "Accorde : @signals"
+
+msgid "Label"
+msgstr "Libellé"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Texts"
+msgstr "Textes"
+
+msgid "Plain text, HTML is not allowed. Links to the privacy policy and the imprint are added automatically."
+msgstr "Texte brut, le HTML n’est pas autorisé. Les liens vers la politique de confidentialité et les mentions légales sont ajoutés automatiquement."
+
+msgid "@service is replaced by the name of the service, @provider by its provider."
+msgstr "@service est remplacé par le nom du service, @provider par son fournisseur."
+
+msgid "Consent log"
+msgstr "Journal des consentements"
+
+msgid "Keep log entries for"
+msgstr "Conserver les entrées du journal pendant"
+
+msgid "Proof of consent is needed as long as claims can be raised, usually 3 years (1095 days). 0 keeps entries forever."
+msgstr "La preuve du consentement est nécessaire tant que des prétentions peuvent être invoquées, généralement 3 ans (1095 jours). 0 conserve les entrées indéfiniment."
+
+msgid "The data layer must be a valid JavaScript variable name."
+msgstr "Le data layer doit être un nom de variable JavaScript valide."
+
+msgid "Banner title"
+msgstr "Titre de la bannière"
+
+msgid "Banner text"
+msgstr "Texte de la bannière"
+
+msgid "Note when the texts have changed"
+msgstr "Remarque lorsque les textes ont changé"
+
+msgid "Accept all button"
+msgstr "Bouton « Tout accepter »"
+
+msgid "Reject all button"
+msgstr "Bouton « Tout refuser »"
+
+msgid "Settings button"
+msgstr "Bouton « Paramètres »"
+
+msgid "Settings title"
+msgstr "Titre des paramètres"
+
+msgid "Settings introduction"
+msgstr "Introduction des paramètres"
+
+msgid "Save selection button"
+msgstr "Bouton « Enregistrer la sélection »"
+
+msgid "Title of the section about the stored consent"
+msgstr "Titre de la section sur le consentement enregistré"
+
+msgid "Text of the section about the stored consent"
+msgstr "Texte de la section sur le consentement enregistré"
+
+msgid "Placeholder text of blocked external content"
+msgstr "Texte de remplacement des contenus externes bloqués"
+
+msgid "Google tags get the consent through Google Consent Mode. Other tags in Google Tag Manager are triggered by the data layer event %event, see the README of the module."
+msgstr "Les balises Google reçoivent le consentement via Google Consent Mode. Les autres balises de Google Tag Manager sont déclenchées par l’événement data layer %event, voir le README du module."
+
+msgid "Enable the services used on this website. They are listed in the banner and in the cookie declaration of the text filter token [cookie-consent-declaration]."
+msgstr "Activez les services utilisés sur ce site. Ils sont listés dans la bannière et dans la déclaration des cookies du jeton de filtre de texte [cookie-consent-declaration]."
+
+msgid "Every choice in the banner is logged with the random consent ID shown to the visitor in the <a href=\":settings\">cookie settings</a>. No IP addresses are stored."
+msgstr "Chaque choix effectué dans la bannière est enregistré avec l’ID de consentement aléatoire que le visiteur voit dans les <a href=\":settings\">paramètres des cookies</a>. Aucune adresse IP n’est enregistrée."
+
+msgid "Cookie declaration"
+msgstr "Déclaration des cookies"
+
+msgid "Cookie consent"
+msgstr "Consentement aux cookies"
+
+msgid "Replaces [cookie-consent-declaration] with the list of services and cookies. Place it after \"Limit allowed HTML tags\"."
+msgstr "Remplace [cookie-consent-declaration] par la liste des services et des cookies. À placer après « Limiter les balises HTML autorisées »."
+
+msgid "@token is replaced with the list of services and cookies."
+msgstr "@token est remplacé par la liste des services et des cookies."
+
+msgid "Cookie banner with Google Consent Mode v2, proof of consent, two-click embeds and cookie declaration for Drupal websites."
+msgstr "Bannière des cookies avec Google Consent Mode v2, preuve du consentement, intégrations en deux clics et déclaration des cookies pour les sites Drupal."
+
+msgid "Administer cookie consent"
+msgstr "Administrer le consentement aux cookies"
+
+msgid "Edit the cookie banner, consent categories and services."
+msgstr "Modifier la bannière des cookies, les catégories de consentement et les services."
+
+msgid "View the cookie consent log"
+msgstr "Consulter le journal des consentements aux cookies"
+
+msgid "Search and export the proof of consents given by visitors."
+msgstr "Rechercher et exporter les preuves des consentements donnés par les visiteurs."
+
+msgid "Cookie banner, consent categories, services and Google Consent Mode."
+msgstr "Bannière des cookies, catégories de consentement, services et Google Consent Mode."
+
+msgid "Cookie consent log"
+msgstr "Journal des consentements aux cookies"
+
+msgid "Proof of the consents given by visitors."
+msgstr "Preuve des consentements donnés par les visiteurs."
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Add service"
+msgstr "Ajouter un service"
+
+msgid "Cookie consent settings"
+msgstr "Paramètres du consentement aux cookies"
+
+msgid "Revision of the consent texts, raising it asks all visitors again"
+msgstr "Révision des textes de consentement, l’augmenter sollicite à nouveau tous les visiteurs"
+
+msgid "Days until visitors are asked again"
+msgstr "Jours avant que les visiteurs soient à nouveau sollicités"
+
+msgid "Path of the privacy policy"
+msgstr "Chemin de la politique de confidentialité"
+
+msgid "Path of the imprint"
+msgstr "Chemin des mentions légales"
+
+msgid "Name of the Google Tag Manager data layer"
+msgstr "Nom du data layer de Google Tag Manager"
+
+msgid "Milliseconds Google tags wait for a consent update"
+msgstr "Millisecondes pendant lesquelles les balises Google attendent une mise à jour du consentement"
+
+msgid "Redact ads data while ad_storage is denied"
+msgstr "Masquer les données publicitaires tant que ad_storage est refusé"
+
+msgid "Pass ad click information through URLs while cookies are denied"
+msgstr "Transmettre les informations de clic publicitaire via les URL tant que les cookies sont refusés"
+
+msgid "Days the consent log is kept"
+msgstr "Jours de conservation du journal des consentements"
+
+msgid "Consent categories"
+msgstr "Catégories de consentement"
+
+msgid "Consent category"
+msgstr "Catégorie de consentement"
+
+msgid "Required, cannot be rejected"
+msgstr "Obligatoire, ne peut pas être refusée"
+
+msgid "Google Consent Mode signals granted with this category"
+msgstr "Signaux Google Consent Mode accordés avec cette catégorie"
+
+msgid "Signal"
+msgstr "Signal"
+
+msgid "Machine name"
+msgstr "Nom machine"
+
+msgid "Cookie"
+msgstr "Cookie"
+
+msgid "Name, * as wildcard"
+msgstr "Nom, * comme caractère générique"
+
+msgid "Duration"
+msgstr "Durée"
+
+msgid "Host"
+msgstr "Hôte"
+
+msgid "Play YouTube videos from youtube-nocookie.com"
+msgstr "Lire les vidéos YouTube depuis youtube-nocookie.com"
+
+msgid "Applies even while the banner is disabled. Videos still need consent: YouTube receives data once the video is loaded."
+msgstr "S’applique même lorsque la bannière est désactivée. Les vidéos nécessitent tout de même un consentement : YouTube reçoit des données dès que la vidéo est chargée."
+
+msgid "YouTube videos are played from youtube-nocookie.com."
+msgstr "Les vidéos YouTube sont lues depuis youtube-nocookie.com."
+
+msgid "Open the banner only on pages that load Google Tag Manager"
+msgstr "Ouvrir la bannière uniquement sur les pages qui chargent Google Tag Manager"
+
+msgid "Pages excluded in the Google Tag settings, e.g. the login page, do not open the banner. Stored consent, blocked content and the cookie settings still work there."
+msgstr "Les pages exclues dans les paramètres Google Tag, p. ex. la page de connexion, n’ouvrent pas la bannière. Le consentement enregistré, les contenus bloqués et les paramètres des cookies y fonctionnent toujours."
+
+msgid "The banner opens only on pages that load Google Tag Manager."
+msgstr "La bannière s’ouvre uniquement sur les pages qui chargent Google Tag Manager."
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "service|services"
+msgstr "service|services"
+
+msgid "Last change"
+msgstr "Dernière modification"
+
+msgid "Load content"
+msgstr "Charger le contenu"
+
+msgid "Cookie settings"
+msgstr "Paramètres des cookies"
+
+msgid "Sets no cookies."
+msgstr "Ne dépose aucun cookie."
+
+msgid "Labels of the banner are translated with the interface translation."
+msgstr "Les libellés de la bannière sont traduits via la traduction de l’interface."
+
+msgid "Installed the French texts."
+msgstr "Les textes français ont été installés."

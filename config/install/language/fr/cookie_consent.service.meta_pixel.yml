@@ -1,0 +1,10 @@
+label: 'Meta Pixel'
+provider: 'Meta Platforms Ireland Limited'
+purpose: 'Mesure l’efficacité des publicités sur Facebook et Instagram et présente des publicités adaptées aux visiteurs de ce site.'
+cookies:
+  -
+    duration: '3 mois'
+    description: 'Distingue les visiteurs'
+  -
+    duration: '3 mois'
+    description: 'Enregistre des informations sur les clics publicitaires'

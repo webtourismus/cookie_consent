@@ -447,3 +447,6 @@ msgstr "Setzt keine Cookies."
 
 msgid "Labels of the banner are translated with the interface translation."
 msgstr "Bezeichnungen des Banners werden über die Oberflächenübersetzung übersetzt."
+
+msgid "Installed the French texts."
+msgstr "Die französischen Texte wurden installiert."

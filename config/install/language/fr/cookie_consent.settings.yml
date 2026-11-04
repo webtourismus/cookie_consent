@@ -1,0 +1,29 @@
+categories:
+  necessary:
+    label: 'Nécessaires'
+    description: 'Ces cookies et services sont indispensables au fonctionnement du site, par exemple pour enregistrer votre choix de cookies. Ils ne peuvent pas être désactivés.'
+  functional:
+    label: 'Fonctionnels'
+    description: 'Permettent des fonctions supplémentaires et des réglages personnels, par exemple des widgets de chat ou de réservation.'
+  analytics:
+    label: 'Statistiques'
+    description: 'Nous aident à comprendre comment les visiteurs utilisent le site. Les informations sont évaluées de manière agrégée et nous aident à améliorer le site.'
+  marketing:
+    label: 'Marketing'
+    description: 'Servent à mesurer l’efficacité de nos publicités et à vous présenter des offres pertinentes sur d’autres sites.'
+  external_media:
+    label: 'Médias externes'
+    description: 'Contenus de plateformes vidéo et cartographiques comme YouTube ou Google Maps. Leur chargement transmet des données au fournisseur concerné.'
+texts:
+  consent_title: 'Nous respectons votre vie privée'
+  consent_description: 'Nous utilisons des cookies et des technologies similaires pour améliorer notre site, analyser sa fréquentation et afficher des contenus de fournisseurs externes comme des vidéos et des cartes. Avec « Tout accepter », vous consentez à toutes les finalités. Avec « Tout refuser », nous utilisons uniquement les cookies nécessaires. Vous pouvez modifier votre choix à tout moment via « Cookies » en bas de page.'
+  revision_message: 'Nous avons mis à jour nos informations sur la protection des données. Veuillez confirmer à nouveau votre choix.'
+  accept_all: 'Tout accepter'
+  reject_all: 'Tout refuser'
+  show_preferences: 'Paramètres'
+  preferences_title: 'Paramètres des cookies'
+  preferences_description: 'Choisissez ici les cookies et services que nous pouvons utiliser. Les cookies nécessaires sont toujours actifs. Votre consentement est facultatif et peut être retiré à tout moment pour l’avenir.'
+  save_preferences: 'Enregistrer la sélection'
+  more_title: 'Votre choix enregistré'
+  more_description: 'Votre consentement est enregistré avec un identifiant aléatoire afin que nous puissions le prouver. Aucune donnée personnelle comme votre adresse IP n’est enregistrée.'
+  embed_text: 'Un contenu de @service est affiché ici. Son chargement transmet des données à @provider.'

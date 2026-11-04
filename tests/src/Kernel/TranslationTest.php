@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\cookie_consent\Kernel;
 
+use Drupal\language\Entity\ConfigurableLanguage;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
@@ -38,6 +39,25 @@ class TranslationTest extends CookieConsentKernelTestBase {
     $this->assertSame('2 years', $overrides->getOverride('en', 'cookie_consent.service.google_analytics')->get('cookies.0.duration'));
     // The override of a sequence item keeps the untranslated cookie name.
     $this->assertSame('_ga', $this->container->get('config.factory')->get('cookie_consent.service.google_analytics')->get('cookies.0.name'));
+  }
+
+  /**
+   * Tests the French overrides and their post update.
+   */
+  public function testFrench(): void {
+    ConfigurableLanguage::createFromLangcode('fr')->save();
+    $languageManager = $this->container->get('language_manager');
+    $this->assertSame('Tout refuser', $languageManager->getLanguageConfigOverride('fr', 'cookie_consent.settings')->get('texts.reject_all'));
+    $this->assertSame('2 ans', $languageManager->getLanguageConfigOverride('fr', 'cookie_consent.service.google_analytics')->get('cookies.0.duration'));
+
+    // Sites that had French before get the missing overrides, changed ones
+    // are kept.
+    $languageManager->getLanguageConfigOverride('fr', 'cookie_consent.settings')->delete();
+    $languageManager->getLanguageConfigOverride('fr', 'cookie_consent.service.youtube')->set('purpose', 'Changé')->save();
+    require_once $this->container->get('extension.list.module')->getPath('cookie_consent') . '/cookie_consent.post_update.php';
+    cookie_consent_post_update_french_texts();
+    $this->assertSame('Tout refuser', $languageManager->getLanguageConfigOverride('fr', 'cookie_consent.settings')->get('texts.reject_all'));
+    $this->assertSame('Changé', $languageManager->getLanguageConfigOverride('fr', 'cookie_consent.service.youtube')->get('purpose'));
   }
 
   /**

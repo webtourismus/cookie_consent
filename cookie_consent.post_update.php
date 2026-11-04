@@ -7,6 +7,7 @@
 
 declare(strict_types=1);
 
+use Drupal\Core\Config\FileStorage;
 use Drupal\language\ConfigurableLanguageManagerInterface;
 
 /**
@@ -74,4 +75,24 @@ function cookie_consent_post_update_label_texts(): string {
     }
   }
   return (string) t('Labels of the banner are translated with the interface translation.');
+}
+
+/**
+ * Installs the French texts on sites that already have the French language.
+ */
+function cookie_consent_post_update_french_texts(): string {
+  $languageManager = \Drupal::languageManager();
+  if (!$languageManager instanceof ConfigurableLanguageManagerInterface || !$languageManager->getLanguage('fr')) {
+    return '';
+  }
+  $source = new FileStorage(\Drupal::service('extension.list.module')->getPath('cookie_consent') . '/config/install/language/fr');
+  $configFactory = \Drupal::configFactory();
+  foreach ($source->listAll() as $name) {
+    $override = $languageManager->getLanguageConfigOverride('fr', $name);
+    // Keep existing translations and skip deleted services.
+    if ($override->isNew() && !$configFactory->get($name)->isNew()) {
+      $override->setData($source->read($name))->save();
+    }
+  }
+  return (string) t('Installed the French texts.');
 }

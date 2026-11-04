@@ -1,0 +1,7 @@
+label: 'Consentement aux cookies'
+provider: 'Exploitant de ce site'
+purpose: 'Enregistre votre choix de cookies et l’identifiant de consentement aléatoire.'
+cookies:
+  -
+    duration: '6 mois'
+    description: 'Votre choix de cookies'

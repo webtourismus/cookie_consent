@@ -1,5 +1,12 @@
 # Changes
 
+## 1.4.0
+
+- French translation: texts of the banner, categories and services (config
+  translations) and labels (`translations/cookie_consent.fr.po`). Sites that
+  already have French get the texts by a post update: run `drush updb`,
+  `drush locale:import fr` (see README) and `drush cex`.
+
 ## 1.3.0
 
 - Simpler settings: labels such as table headers, "Close" or "Load content"

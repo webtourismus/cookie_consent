@@ -19,6 +19,8 @@ The banner is [vanilla-cookieconsent](https://github.com/orestbida/cookieconsent
 ddev composer require webtourismus/cookie_consent
 ddev drush en cookie_consent -y
 ddev drush locale:import de modules/contrib/cookie_consent/translations/cookie_consent.de.po
+# Only on sites with French:
+ddev drush locale:import fr modules/contrib/cookie_consent/translations/cookie_consent.fr.po
 ```
 
 The module is installed **disabled**: no banner, no consent signals, no
@@ -184,7 +186,12 @@ hour and IP address).
 The wording of the banner (title, text, buttons, settings introduction,
 placeholder of blocked content) is in the settings and translated in the
 "Translate" tab. Labels such as table headers or "Load content" are
-interface translations (`translations/cookie_consent.de.po`).
+interface translations (`translations/cookie_consent.de.po`,
+`translations/cookie_consent.fr.po`).
+
+The module ships German texts with English and French translations. They are
+installed when the language is added; a site that already had French when
+updating to 1.4.0 gets them by a post update.
 
 ## Changing texts or services
 

@@ -1,0 +1,10 @@
+label: 'Google Ads'
+provider: 'Google Ireland Limited'
+purpose: 'Mesure quelles publicités mènent à des demandes et à des réservations et présente des publicités adaptées aux visiteurs de ce site.'
+cookies:
+  -
+    duration: '3 mois'
+    description: 'Mesure les conversions publicitaires'
+  -
+    duration: '3 mois'
+    description: 'Enregistre des informations sur les clics publicitaires'

@@ -1,0 +1,3 @@
+label: 'Google Maps'
+provider: 'Google Ireland Limited'
+purpose: 'Affiche des cartes interactives, par exemple pour l’itinéraire.'
